@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+
+    <meta name="robots" content="noindex">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <link type="text/css" href = "../../snackbar.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body class="login">
+    
+    <div id="snackbar"><b style="color: #000000;">Logged in</b></div>
+
+
+    <div class="d-flex align-items-center" style="min-height: 100vh">
+        <div class="col-sm-8 col-md-6 col-lg-4 mx-auto" style="min-width: 300px;">
+            <div class="text-center mt-5 mb-1">
+                <div class="avatar avatar-lg">
+                    <img src="../images/logo/primary.svg" class="avatar-img rounded-circle" width="2px" height="3px"
+                        alt="LearnPlus" />
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mb-5 navbar-light">
+                <a href="instructor-dashboard.html" class="navbar-brand m-0">LearnPlus</a>
+            </div>
+            <div class="card navbar-shadow">
+                <div class="card-header text-center">
+                    <h4 class="card-title">Login</h4>
+                    <p class="card-subtitle">Access your account</p>
+                </div>
+                <div class="card-body">
+
+                    <a href="http://localhost:4000/teachers/ins_auth" class="btn btn-light btn-block">
+                        <span class="fab fa-google mr-2"></span>
+                        Continue with Google
+                    </a>
+
+                    <div class="page-separator">
+                        <div class="page-separator__text">or</div>
+                    </div>
+
+                    <form id="formdata">
+                        <div class="form-group">
+                            <label class="form-label" for="email">Your email address:</label>
+                            <div class="input-group input-group-merge">
+                                <input id="email" name="email" type="email" required=""
+                                    class="form-control form-control-prepended" placeholder="Your email address">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-envelope"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="password">Your password:</label>
+                            <div class="input-group input-group-merge">
+                                <input id="password" type="password" name="password" required=""
+                                    class="form-control form-control-prepended" placeholder="Your password">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <span class="fas fa-user-lock"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <button type="button" class="btn btn-primary btn-block" onclick="login()">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <a href="forgot-password.html" class="text-black-70"
+                                style="text-decoration: underline;">Forgot Password?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../instructorCalls/preventToken.js"></script>
+    <script src="../instructorCalls/login.js"></script>
+    <script src="../vendor/jquery.min.js"></script>
+
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <script src="../inbuiltjs/app.js"></script>
+
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <script src="../inbuiltjs/app-settings.js"></script>
+</body>
+
+</html>

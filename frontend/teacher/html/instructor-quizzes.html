@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Instructor - Add Final Assessment</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+    <!-- Flatpickr -->
+    <link type="text/css" href="../css/flatpickr.css" rel="stylesheet">
+    <link type="text/css" href="../css/flatpickr-airbnb.css" rel="stylesheet">
+
+    <!-- Quill Theme -->
+    <link type="text/css" href="../css/quill.css" rel="stylesheet">
+
+    <!-- Nestable -->
+    <link rel="stylesheet" href="../css/nestable.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #ccc;
+            width: 100%;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .question label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .question input[type="text"] {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class=" layout-fluid">
+    <div class="preloader">
+        <!-- <div class="sk-chase">
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+        <div class="sk-chase-dot"></div>
+    </div> -->
+
+        <div class="sk-bounce">
+            <div class="sk-bounce-dot"></div>
+            <div class="sk-bounce-dot"></div>
+        </div>
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+        </div>
+        <script src="../js/header.js"></script>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="instructor-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="instructor-courses.html">Courses</a></li>
+                            <li class="breadcrumb-item active">Add Final Assessment</li>
+                        </ol>
+                        <div class="media align-items-center mb-headings">
+                            <div class="media-body">
+                                <h1 class="h2">Add Final Assessment</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Basic Information</h4>
+                                    </div>
+                                    <form id="formdata" method="post" action="http://localhost:4000/addQuiz">
+                                        <div class="card-body">
+
+                                            <div class="form-group">
+                                                <label class="form-label" for="select_course">Select Course</label>
+                                                <select id="courses" class="custom-select form-control" name="courses">
+                                                </select>
+                                            </div>
+
+                                            <div class="form group">
+                                                <label class="form-label">Instructor Email</label>
+                                                <input type="text" id="email" name="email" value=""
+                                                    class="form-control">
+                                            </div>
+
+                                            <div class="form group">
+                                                <label class="form-label">Description</label>
+                                                <input type="text" id="description" name="description"
+                                                    class="form-control">
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">Details</h4>
+                                                    <p class="card-subtitle">Options </p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label class="form-label" for="type">Assessment Type</label>
+                                                        <select id="type" class="custom-select form-control" name="type"
+                                                            onchange="Assessment()">
+                                                            <option>--SELECT--</option>
+                                                            <option value="Quiz">Quiz</option>
+                                                            <option value="Coding">Coding</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="form group">
+                                                        <label class="form-label" for="option1">Completion Badge</label>
+                                                        <div>
+                                                            <div data-toggle="buttons">
+                                                                <label class="btn btn-primary btn-circle active">
+                                                                    <input type="radio" class="d-none" id="option1"
+                                                                        checked>
+                                                                    <i class="material-icons">person</i>
+                                                                </label>
+                                                                <label class="btn btn-danger btn-circle">
+                                                                    <input type="radio" class="d-none" id="option2">
+                                                                    <i class="material-icons">star</i>
+                                                                </label>
+                                                                <label class="btn btn-success btn-circle">
+                                                                    <input type="radio" class="d-none" id="option3">
+                                                                    <i class="material-icons">shop</i>
+                                                                </label>
+                                                                <label class="btn btn-warning btn-circle">
+                                                                    <input type="radio" class="d-none" id="option4">
+                                                                    <i class="material-icons">monetization_on</i>
+                                                                </label>
+                                                                <label class="btn btn-info btn-circle">
+                                                                    <input type="radio" class="d-none" id="option5">
+                                                                    <i class="material-icons">enhanced_encryption</i>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4 class="card-title" id="Assessment"></h4>
+
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="card-body" id="Quiz">
+
+                                                    </div>
+                                                    <div lass="card-body" id="save">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="modal fade" id="editLesson">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+            </div>
+            <script src="../js/header-left.js"></script>
+
+        </div>
+
+        <!-- App Settings FAB -->
+        <div id="app-settings">
+            <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-instructor-course-edit.html',
+      'default': 'instructor-course-edit.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+        </div>
+
+    </div>
+    </div>
+    <script>
+        $("#email").val(sessionStorage.getItem("email"));
+        // console.log($("#type").val());
+        var questionCount;
+        function Assessment() {
+            questionCount = 1;
+            $("#Quiz").html("");
+            // console.log($("#type").val());
+            $("#Assessment").text($("#type").val())
+            if ($("#type").val() == "Coding") {
+                $("#Quiz").html(`            <div class="card">
+              <div class="card-body">
+                  <div id="problem-container">
+                    <div class="form-group row">
+                      <label for="quiz_title" class="col-sm-3 col-form-label form-label">Title:</label>
+                      <div class="col-sm-9">
+                        <input id="quiz_title" type="text" class="form-control" placeholder="Title">
+                      </div>
+                    </div>
+                    <div class="problem">
+                      <div class="card card-body">
+                      <div class="form-group row">
+                        <h5 class="col-sm-3">Problem-1</h5>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Statement:</label>
+                        <div class="col-sm-9">
+                          <textarea name="statement[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Input Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="inputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Output Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="outputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Constraints:</label>
+                        <div class="col-sm-9">
+                          <textarea name="constraints[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Explanation:</label>
+                        <div class="col-sm-9">
+                          <textarea name="explanation[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                 
+              </div>
+
+
+            </div>`)
+                document.getElementById("save").innerHTML = `                  <div class="form-group row">
+                    <div class="col-sm-4 offset-sm-3">
+                      <div class="media-left">
+                        <button type="button" id="add-problem-button" class="btn btn-success" >Add Problem</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                      </div>
+
+                    </div>
+                  </div>`
+                const problemContainer = document.getElementById('problem-container');
+                const addButton = document.getElementById('add-problem-button');
+
+                let problemCount = 1;
+
+                addButton.addEventListener('click', () => {
+                    problemCount++;
+
+                    const newProblem = document.createElement('div');
+                    newProblem.classList.add('problem');
+
+                    newProblem.innerHTML = `
+                <div class="card card-body">
+                      <div class="form-group row">
+                        <h5 class="col-sm-3">Problem-${problemCount}</h5>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Statement:</label>
+                        <div class="col-sm-9">
+                          <textarea name="statement[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Input Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="inputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Output Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="outputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Constraints:</label>
+                        <div class="col-sm-9">
+                          <textarea name="constraints[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Explanation:</label>
+                        <div class="col-sm-9">
+                          <textarea name="explanation[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                </div>
+                    `;
+
+                    problemContainer.appendChild(newProblem);
+                });
+            }
+            else if ($("#type").val() == "Quiz"){
+
+                var questionsContainer = document.getElementById("Quiz");
+                const questionDiv = document.createElement("div");
+                questionDiv.classList.add("question");
+
+                const questionLabel = document.createElement("label");
+                questionLabel.setAttribute("for", "question-" + questionCount);
+                questionLabel.textContent = "Question " + questionCount + ":";
+
+                const questionInput = document.createElement("input");
+                questionInput.setAttribute("type", "text");
+                questionInput.setAttribute("id", "question-" + questionCount);
+                questionInput.setAttribute("name", "question-" + questionCount);
+                questionInput.setAttribute("required", "");
+
+                const optionsDiv = document.createElement("div");
+                optionsDiv.classList.add("options");
+
+                for (let i = 1; i <= 4; i++) {
+                    const optionDiv = document.createElement("div");
+                    optionDiv.classList.add("option");
+
+                    const optionLabel = document.createElement("label");
+                    optionLabel.setAttribute("for", "question-" + questionCount + "-option-" + i);
+                    optionLabel.textContent = "Option " + i + ":";
+
+                    const optionInput = document.createElement("input");
+                    optionInput.setAttribute("type", "text");
+                    optionInput.setAttribute("id", "question-" + questionCount + "-option-" + i);
+                    optionInput.setAttribute("name", "question-" + questionCount + "-option-" + i);
+                    optionInput.setAttribute("required", "");
+
+                    const correctOptionInput = document.createElement("input");
+                    correctOptionInput.setAttribute("type", "radio");
+                    correctOptionInput.setAttribute("id", "question-" + questionCount + "-correct-option-" + i);
+                    correctOptionInput.setAttribute("name", "question-" + questionCount + "-correct-option");
+                    correctOptionInput.setAttribute("value", i);
+                    correctOptionInput.setAttribute("required", "");
+
+                    const correctOptionLabel = document.createElement("label");
+                    correctOptionLabel.setAttribute("for", "question-" + questionCount + "-correct-option-" + i);
+                    correctOptionLabel.textContent = "Correct?";
+
+                    optionDiv.appendChild(optionLabel);
+                    optionDiv.appendChild(optionInput);
+                    optionDiv.appendChild(correctOptionInput);
+                    optionDiv.appendChild(correctOptionLabel);
+                    optionsDiv.appendChild(optionDiv);
+                }
+
+                questionDiv.appendChild(questionLabel);
+                questionDiv.appendChild(questionInput);
+                questionDiv.appendChild(optionsDiv);
+                questionsContainer.appendChild(questionDiv);
+                document.getElementById("save").innerHTML = `                  <div class="form-group row">
+                    <div class="col-sm-4 offset-sm-3">
+                      <div class="media-left">
+                        <button type="button" id="add-problem-button" class="btn btn-success" onclick="addQuestion1()">Add Problem</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                      </div>
+
+                    </div>
+                  </div>`
+            }
+        }
+
+
+
+        function addQuestion1() {
+            addQuestionBtn = document.getElementById("add-question-btn");
+            var questionsContainer = document.getElementById("Quiz");
+
+            questionCount++;
+
+            const questionDiv = document.createElement("div");
+            questionDiv.classList.add("question");
+
+            const questionLabel = document.createElement("label");
+            questionLabel.setAttribute("for", "question-" + questionCount);
+            questionLabel.textContent = "Question " + questionCount + ":";
+
+            const questionInput = document.createElement("input");
+            questionInput.setAttribute("type", "text");
+            questionInput.setAttribute("id", "question-" + questionCount);
+            questionInput.setAttribute("name", "question-" + questionCount);
+            questionInput.setAttribute("required", "");
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.classList.add("options");
+
+            for (let i = 1; i <= 4; i++) {
+                const optionDiv = document.createElement("div");
+                optionDiv.classList.add("option");
+
+                const optionLabel = document.createElement("label");
+                optionLabel.setAttribute("for", "question-" + questionCount + "-option-" + i);
+                optionLabel.textContent = "Option " + i + ":";
+
+                const optionInput = document.createElement("input");
+                optionInput.setAttribute("type", "text");
+                optionInput.setAttribute("id", "question-" + questionCount + "-option-" + i);
+                optionInput.setAttribute("name", "question-" + questionCount + "-option-" + i);
+                optionInput.setAttribute("required", "");
+
+                const correctOptionInput = document.createElement("input");
+                correctOptionInput.setAttribute("type", "radio");
+                correctOptionInput.setAttribute("id", "question-" + questionCount + "-correct-option-" + i);
+                correctOptionInput.setAttribute("name", "question-" + questionCount + "-correct-option");
+                correctOptionInput.setAttribute("value", i);
+                correctOptionInput.setAttribute("required", "");
+
+                const correctOptionLabel = document.createElement("label");
+                correctOptionLabel.setAttribute("for", "question-" + questionCount + "-correct-option-" + i);
+                correctOptionLabel.textContent = "Correct?";
+
+                optionDiv.appendChild(optionLabel);
+                optionDiv.appendChild(optionInput);
+                optionDiv.appendChild(correctOptionInput);
+                optionDiv.appendChild(correctOptionLabel);
+                optionsDiv.appendChild(optionDiv);
+
+                questionDiv.appendChild(questionLabel);
+                questionDiv.appendChild(questionInput);
+                questionDiv.appendChild(optionsDiv);
+
+                questionsContainer.appendChild(questionDiv);
+            }
+        }
+    </script>
+    <script src="../instructorCalls/validationToken.js"></script>
+    <script src="../instructorCalls/getCourses.js"></script>
+
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../inbuiltjs/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../inbuiltjs/app-settings.js"></script>
+
+    <!-- Nestable -->
+    <script src="../vendor/jquery.nestable.js"></script>
+    <script src="../inbuiltjs/nestable.js"></script>
+
+    <!-- Quill -->
+    <script src="../vendor/quill.min.js"></script>
+    <script src="../inbuiltjs/quill.js"></script>
+
+    <!-- Flatpickr -->
+    <script src="../vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="../inbuiltjs/flatpickr.js"></script>
+
+</body>
+
+</html>

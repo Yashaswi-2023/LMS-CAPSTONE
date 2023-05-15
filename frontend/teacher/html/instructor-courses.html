@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Browse courses</title>
+
+    <meta name="robots" content="noindex">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+
+    </div>
+
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="../js/header.js"></script>
+        </div>
+
+
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Courses</li>
+                        </ol>
+                        <div class="media align-items-center mb-headings">
+                            <div class="media-body">
+                                <h1 class="h2">Courses</h1>
+                            </div>
+                            <div class="media-right">
+                                <div class="btn-group btn-group-sm">
+                                    <a href="#" class="btn btn-white active"><i class="material-icons">list</i></a>
+                                    <a href="#" class="btn btn-white"><i class="material-icons">dashboard</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="card-columns" id="courses">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="../js/header-left.js"></script>
+
+            </div>
+
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-browse-courses.html',
+      'default': 'student-browse-courses.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="../vendor/jquery.min.js"></script>
+
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <script src="../inbuiltjs/app.js"></script>
+
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <script src="../inbuiltjs/app-settings.js"></script>
+    <script src="../instructorCalls/courses.js"></script>
+    <script src="../instructorCalls/validationToken.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>instructor - Messages</title>
+  
+  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+  <meta name="robots" content="noindex">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+    rel="stylesheet">
+
+  <!-- Perfect Scrollbar -->
+  <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+  <!-- Material Design Icons -->
+  <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+  <!-- Preloader -->
+  <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link type="text/css" href="../css/app.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- <script src="../studentCalls/calls.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"
+    integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      .card1 {
+        border-radius : 15px;
+      }
+    </style>
+</head>
+
+<body class="app-messages layout-fluid">
+
+  <!-- <div class="preloader"> -->
+    <!-- <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div> -->
+
+    <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+    <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+  <!-- </div> -->
+
+  <!-- Header Layout -->
+  <div class="mdk-header-layout js-mdk-header-layout">
+
+    <!-- Header -->
+
+    <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+      <div class="mdk-header__content" id="headertop">
+      </div>
+      <script src="../js/header.js"></script>
+    </div>
+
+    <!-- // END Header -->
+
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content">
+
+      <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+        <div class="mdk-drawer-layout__content page ">
+
+          <div data-push data-responsive-width="768px" class="mdk-drawer-layout js-mdk-drawer-layout">
+            <div class="mdk-drawer-layout__content">
+
+              <div class="app-messages__container d-flex flex-column h-100 pb-4">
+                <div class="navbar navbar-light bg-white navbar-expand-sm navbar-shadow z-1">
+                  <div class="container-fluid flex-wrap px-sm-0">
+                    <div class="nav py-2">
+                      <div class="nav-item align-items-center mr-3">
+                        <div class="mr-3">
+                          <div class="avatar avatar avatar-sm">
+                            <img src="" id="avatar-img1" alt="people" class="avatar-img rounded-circle">
+                          </div>
+                        </div>
+                        <div class="d-flex flex-column" style="max-width: 200px; font-size: 15px">
+                          <strong class="text-body" id="abc"></strong>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="py-2 flex d-flex align-items-center">
+                      <div class="flex search-form form-control-rounded search-form--light" style="min-width: 200px;">
+                        <input type="text" class="form-control" placeholder="Search messages" id="searchSample02">
+                        <button class="btn pr-3" type="button" role="button"><i
+                            class="material-icons">search</i></button>
+                      </div>
+                      <button data-target="#messages-drawer" class="navbar-toggler d-block d-md-none ml-3 p-0"
+                        data-toggle="sidebar" type="button">
+                        <i class="material-icons">people_outline</i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex pt-4" style="position: relative;" data-perfect-scrollbar>
+                  <div class="container-fluid page__container">
+                    <div class="jumbotron">
+                      <div class="d-flex align-items-center">
+                        <div class="mr-3">
+                          <div class="avatar avatar-xl">
+                            <img src="" id="avatar-img" alt="people" class="avatar-img rounded-circle">
+                          </div>
+                        </div>
+                        <h4 class="mb-0" id="headChat"> </h4>
+                      </div>
+                    </div>
+                    <ul class="d-flex flex-column list-unstyled" id="messages">
+
+                    </ul>
+                  </div>
+                </div>
+                <div class="container-fluid page__container">
+                  <form action="#" id="message-reply">
+                    <div class="input-group input-group-merge">
+                      <input id="box" type="text" class="form-control form-control-appended" autofocus="" required=""
+                        placeholder="Type message">
+                      <button class="btn btn-info" onclick="sendMessage()">send</button>
+                      <div class="input-group-append">
+                        <div class="input-group-text pr-2">
+                          <button class="btn btn-flush" type="button"><i class="material-icons">tag_faces</i></button>
+                        </div>
+                        <div class="input-group-text pl-0">
+                          <div class="custom-file custom-file-naked d-flex" style="width: 24px; overflow: hidden;">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" style="color: inherit;" for="customFile">
+                              <i class="material-icons">attach_file</i>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <div class="mdk-drawer js-mdk-drawer" data-align="end" id="messages-drawer">
+              <div class="mdk-drawer__content top-0">
+                <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
+                  <div class="d-flex flex-column h-100">
+                    <div class="d-flex flex-column justify-content-center navbar-height">
+                      <div class="px-3 form-group mb-0">
+                        <div class="input-group input-group-merge input-group-rounded flex-nowrap">
+                          <input type="text" class="form-control form-control-prepended" placeholder="Filter members">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">
+                              <span class="material-icons">filter_list</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="flex" data-perfect-scrollbar>
+                      <div class="sidebar-heading">Online</div>
+                      <ul class="list-group list-group-fit mb-3" id="onlinecon">
+
+
+
+                      </ul>
+                      <div class="sidebar-heading d-flex">
+                        <div class="flex text-muted">OFFLINE</div>
+                      </div>
+                      <ul class="list-group list-group-fit mb-3" id="offlinecon">
+
+
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+        </div>
+        <script src="../js/header-left.js"></script>
+
+      </div>
+
+      <!-- App Settings FAB -->
+      <div id="app-settings">
+        <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-messages.html',
+      'default': 'student-messages.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="../vendor/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="../vendor/popper.min.js"></script>
+  <script src="../vendor/bootstrap.min.js"></script>
+
+  <!-- Perfect Scrollbar -->
+  <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+  <!-- MDK -->
+  <script src="../vendor/dom-factory.js"></script>
+  <script src="../vendor/material-design-kit.js"></script>
+
+  <!-- App JS -->
+  <script src="../inbuiltjs/app.js"></script>
+
+  <!-- Highlight.js -->
+  <script src="../inbuiltjs/hljs.js"></script>
+
+  <!-- App Settings (safe to remove) -->
+  <script src="../inbuiltjs/app-settings.js"></script>
+  <script src="../../chat.js"></script>
+
+
+  <script>
+    // sessionStorage.setItem("ppic","../../images/DurgaPrasadAvatar.jpg")
+    var temp = [];
+    function sendMessage() {
+      if ((($("#box").val()).trim()).length > 0) {
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:4000/messages",
+          contentType: "application/json",
+          data: JSON.stringify({
+            members: [
+              sessionStorage.getItem("id"),
+              sessionStorage.getItem("opid"),
+            ],
+            senderid: sessionStorage.getItem("id"),
+            message: $("#box").val(),
+          }),
+          success: (data) => {
+            console.log(data);
+            socket.emit("sendmessage", [
+              sessionStorage.getItem("opid"),
+              $("#box").val(),
+            ]);
+            document.getElementById("box").value = "";
+          },
+        });
+        if(sessionStorage.getItem("ppic") == undefined || sessionStorage.getItem("ppic") == null) {
+          sessionStorage.setItem("ppic","../../images/DurgaPrasadAvatar.jpg");
+        }
+        document.getElementById("messages").innerHTML +=
+          `<li class="d-flex justify-content-end mb-4 w-auto">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="mb-0 float-end">
+                        ` +
+          $("#box").val() +
+          `
+                      </p>
+                      <sub>Just Now</sub>
+                    </div>
+                  </div>
+                  
+                  <img
+                    src="${sessionStorage.getItem("ppic")}"
+                    alt="avatar"
+                    class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
+                    width="60"
+                  />
+                </li>`;
+        // 
+      }
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+    function createConv(dataid) {
+      var id = dataid
+      var id1 = sessionStorage.getItem("id")
+      // console.log(id,id1);
+      // alert(data)
+      $(document).ready(function () {
+        // console.log([id, JSON.parse(sessionStorage.getItem("email"))._id]);
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:4000/conversations",
+          // contentType: "application/json",
+          // beforeSend : function(request){
+          //   request.setRequestHeader("Access-Control-Allow-Origin",'*')
+          // },
+          data: {
+            members: [id, id1]
+          },
+        });
+      })
+    }
+    function clearss(abc, def, xyz) {
+      // console.log(xyz);
+      document.getElementById("avatar-img").src = xyz;
+      document.getElementById("avatar-img1").src = xyz;
+      document.getElementById("abc").innerText = abc;
+      document.getElementById("headChat").innerText = abc;
+      // console.log(event.target.id);
+      sessionStorage.setItem("opid", def);
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:4000/messages",
+        headers: {
+          members: [
+            sessionStorage.getItem("id"),
+            def
+          ],
+        },
+        success: (data) => {
+          
+          console.log(data);
+          str = "";
+          for (message of data) {
+            if (
+              message.senderid ===
+              sessionStorage.getItem("opid")
+            ) {
+              str +=
+                ` <li class="card1 d-flex justify-content-start mb-4 w-auto">
+                  <img
+                    src="${sessionStorage.getItem("ppic")}"
+                    alt="avatar"
+                    class="rounded-circle d-flex align-self-start me-3 shadow-1-strong"
+                    width="60"
+                  />
+                  <div class="card">
+                    <div class="card-body" >
+                      <p class="mb-0" >
+                        ` +
+                message.message +
+                `
+                      </p>
+                      <sub>${message.time.split("T")[0]}</sub>
+                    </div>
+                  </div>
+                </li>`;
+            } else {
+              str +=
+                `<li class="card1 d-flex justify-content-end mb-4 w-auto">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="mb-0">
+                        ` +
+                message.message +
+                `
+                      </p>
+                      <sub>${message.time.split("T")[0]}</sub>
+                    </div>
+                  </div>
+                  <img
+                    src="${sessionStorage.getItem("ppic")}"
+                    alt="avatar"
+                    class="rounded-circle d-flex align-self-start ms-3 shadow-1-strong"
+                    width="60"
+                  />
+                </li>`;
+            }
+
+          }
+
+          document.getElementById("messages").innerHTML = str;
+          // window.scrollTo(0, document.body.scrollHeight);
+        },
+      });
+    }
+    $(document).ready(function () {
+      var usersActive = [];
+      database = "users";
+      var obj = sessionStorage.getItem("email");
+      if (typeof obj =="string") {
+        database = "instructors";
+      }
+      $.ajax({
+        type : "GET",
+        url : "http://localhost:4000/getTeacher",
+        headers : {
+          email: sessionStorage.getItem("email")
+        },
+        success: function(data){
+          sessionStorage.setItem("id", data._id);
+          sessionStorage.setItem("ppic",data.profilePicture)
+        }
+      })
+
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:4000/getAll",
+        headers: {
+          id: sessionStorage.getItem("id"),
+          base: database,
+        },
+        success: (data1) => {
+          // console.log(members);
+          socket.emit("adduser",sessionStorage.getItem("id"));
+          socket.on("users", (usrs) => {
+            // usersActive = usrs
+            for (i in usrs) {
+              if (usrs[i].userid != sessionStorage.getItem("id"))
+                usersActive.push(usrs[i].userid)
+            }
+            console.log(usersActive, 'actives');
+            for (i in usrs) {
+              // console.log(usrs[i]);
+              if (usrs[i].userid != sessionStorage.getItem("id") ){
+                $.ajax({
+                  type: "GET",
+                  url: "http://localhost:4000/getUser",
+                  headers: {
+                    opid: usrs[i].userid,
+                  },
+                  success:  function(data) {
+                    console.log(data);
+                     document.getElementById("onlinecon").innerHTML += `
+                    <li id="${data._id}" class="list-group-item px-4 py-3">
+                          
+                            <span class="avatar avatar-sm avatar-online mr-3 flex-shrink-0">
+
+                            <a onclick="createConv('${data._id}')" > <img src="../../images/DurgaPrasadAvatar.jpg" alt="Avatar"  class="avatar-img rounded-circle"></a>
+
+                            </span>
+                           <span> <a href="#" class="d-flex align-items-center position-relative" id="` +
+                      data._id +
+                      `" onclick="clearss('${data.firstname}+${data.lastname}','${data._id}','${data.profilePicture}')">
+                            <span class="flex d-flex flex-column" style="max-width: 175px;">
+                              <strong class="text-body">${data.firstname} ${data.lastname}</strong>
+
+                            </span>
+                          </a></span>
+                        </li>
+                    `;
+                  }
+                })
+              }
+            }
+          });
+          // console.log(usersActive);
+
+          setTimeout(() => {
+            for (user of data1) {
+              // temp.push(user._id);
+              if (user._id !== sessionStorage.getItem("id")) {
+                // console.log(document.getElementById(user._id), user._id);
+                if (! document.getElementById(user._id)) {
+                  // console.log(user._id in usersActive);
+                  document.getElementById("offlinecon").innerHTML += `
+                <li class="list-group-item px-4 py-3">
+                          
+                          <span class="avatar avatar-sm avatar-offline mr-3 flex-shrink-0">
+
+                          <a onclick="createConv('${user._id}')" > <img src="../../images/DurgaPrasadAvatar.jpg" alt="Avatar"  class="avatar-img rounded-circle"></a>
+
+                          </span>
+                         <span> <a href="#" class="d-flex align-items-center position-relative" id="` +
+                    user._id +
+                    `" onclick="clearss('${user.firstname} ${user.lastname}','${user._id}','${user.profilePicture}')">
+                          <span class="flex d-flex flex-column" style="max-width: 175px;">
+                            <strong class="text-body">${user.firstname} ${user.lastname}</strong>
+
+                          </span>
+                        </a></span>
+                      </li>
+                  `;
+                }
+
+
+              }
+            }
+
+
+          },500)
+        }
+
+      });
+
+
+    });
+    // ----------------------------------------------------------
+    // var memberss = document.querySelectorAll("img")
+    // console.log(memberss);
+    // -------------------------------------------------------
+    // var scrolldiv = document.getElementById("divScroll");
+    // console.log(scrolldiv.scrollHeight);
+    // scrolldiv.scrollTop += scrolldiv.scrollHeight;
+  </script>
+
+  <!-- Messages App -->
+  <script src="../inbuiltjs/messages.js"></script>
+  <script src="../../snackbar.css"></script>
+  <!-- <script src="../studentCalls/calls.js"></script> -->
+  <script src="../instructorCalls/validationToken.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin - Edit account</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../../snackbar.css">
+
+</head>
+
+<body class=" layout-fluid">
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+        <div id="snackbar"><b style="color: #000000;">Logged in</b></div>
+
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+        </div>
+        <script src="../js/header.js"></script>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Edit Account</li>
+                        </ol>
+                        <h1 class="h2">Edit Account</h1>
+
+                        <div class="card">
+                            <div class="tab-content card-body">
+                                <div class="tab-pane active" id="first">
+                                    <form  id="formdata" enctype="multipart/form-data">
+                                        <div class="form-group row">
+                                            <label for="avatar" class="col-sm-3 col-form-label form-label">Your Current
+                                                Avatar</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <img src="../../images/Avatar.jpg" alt="Your current picture"
+                                                    width="200px" height="200px" id="Avatar">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="avatar"
+                                                class="col-sm-3 col-form-label form-label">Avatar</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">attach_file</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="file" name="avatar" id="avatar" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="firstnName"
+                                                class="col-sm-3 col-form-label form-label">Firstname</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i
+                                                                class="material-icons md-18 text-muted">account_circle</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="firstName" id="firstName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lastName"
+                                                class="col-sm-3 col-form-label form-label">Lastname</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i
+                                                                class="material-icons md-18 text-muted">account_circle</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="lastName" id="lastName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email" class="col-sm-3 col-form-label form-label">Email</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">mail</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="email" id="email" class="form-control" disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="website"
+                                                class="col-sm-3 col-form-label form-label">Website</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">language</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="url" name="website" id="website" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="occupation"
+                                                class="col-sm-3 col-form-label form-label">Occupation</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">group</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="occupation" id="occupation" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="companyName" class="col-sm-3 col-form-label form-label">Company
+                                                Name</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">business</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="companyName" id="companyName" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="phoneNumber" class="col-sm-3 col-form-label form-label">Phone
+                                                Number</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">phone_in_talk</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="address"
+                                                class="col-sm-3 col-form-label form-label">Address</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">home</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="address" id="address" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="city" class="col-sm-3 col-form-label form-label">City</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">apartment</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text" name="city" id="city" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="state" class="col-sm-3 col-form-label form-label">State</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">location_city</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="text"  name="state" id="state" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="pincode"
+                                                class="col-sm-3 col-form-label form-label">Pincode</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <i class="material-icons md-18 text-muted">fiber_pin</i>
+                                                        </div>
+                                                    </div>
+                                                    <input type="number" name="pincode" id="pincode" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-group row">
+                                            <div class="col-sm-8 offset-sm-3">
+                                                <div>
+                                                    <div class="media-left">
+                                                        <button type="button" class="btn btn-success" onclick="editAdminProfile()">Save Changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- <div class="tab-pane" id="second">
+                                    <form action="#" class="form-horizontal">
+                                        <div class="form-group row">
+                                            <label for="name_on_invoice" class="col-sm-3 col-form-label form-label">Name
+                                                on Invoice</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <input id="name_on_invoice" type="text" class="form-control"
+                                                    value="Adrian Demian">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="billing_address"
+                                                class="col-sm-3 col-form-label form-label">Address</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <input id="billing_address" type="text" class="form-control"
+                                                    value="Sunny Street, 21, Miami, Florida">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="billing_country"
+                                                class="col-sm-3 col-form-label form-label">Country</label>
+                                            <div class="col-sm-6 col-md-4">
+                                                <select id="billing_country"
+                                                    class="custom-control custom-select form-control">
+                                                    <option value="1" selected>USA</option>
+                                                    <option value="2">India</option>
+                                                    <option value="3">United Kingdom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 col-md-4 offset-sm-3">
+                                                <a href="#" class="btn btn-success"> Update Billing</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="card mt-2">
+                                        <div class="card-header">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <h4 class="card-title">Payment Info</h4>
+                                                </div>
+                                                <div class="media-right">
+                                                    <a href="#" class="btn btn-sm btn-outline-primary"><i
+                                                            class="material-icons">add</i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="card-footer p-0 list-group list-group-fit">
+                                            <li class="list-group-item active">
+                                                <div class="media align-items-center">
+                                                    <div class="media-left">
+                                                        <span class="btn btn-primary btn-circle"><i
+                                                                class="material-icons">credit_card</i></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="mb-0">**** **** **** 2422</p>
+                                                        <small>Updated on 12/02/2016</small>
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <a href="#" class="btn btn-primary btn-sm">
+                                                            <i class="material-icons btn__icon--left">edit</i> EDIT
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="media align-items-center">
+                                                    <div class="media-left">
+                                                        <span class="btn btn-white btn-circle"><i
+                                                                class="material-icons">credit_card</i></span>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <p class="mb-0">**** **** **** 6321</p>
+                                                        <small class="text-muted">Updated on 11/01/2016</small>
+                                                    </div>
+                                                    <div class="media-right">
+                                                        <a href="#" class="btn btn-white btn-sm">
+                                                            <i class="material-icons btn__icon--left">edit</i> EDIT
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+                </div>
+                <script src="../js/header-left.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-admin-account-edit.html',
+      'default': 'admin-account-edit.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="../adminCalls/validationToken.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../adminCalls/editAdminProfile.js"></script>
+    <script src="../adminCalls/getAdminDetails.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../inbuiltjs/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../inbuiltjs/app-settings.js"></script>
+
+</body>
+
+</html>

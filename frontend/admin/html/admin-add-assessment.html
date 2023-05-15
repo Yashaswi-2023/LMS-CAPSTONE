@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Admin - Edit account</title>
+
+  <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+  <meta name="robots" content="noindex">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+    rel="stylesheet">
+
+  <!-- Perfect Scrollbar -->
+  <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+  <!-- Material Design Icons -->
+  <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+  <!-- Preloader -->
+  <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+  <!-- App CSS -->
+  <link type="text/css" href="../css/app.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class=" layout-fluid">
+
+  <div class="preloader">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+
+    <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+    <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+  </div>
+
+  <!-- Header Layout -->
+  <div class="mdk-header-layout js-mdk-header-layout">
+
+    <!-- Header -->
+
+    <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+    </div>
+    <script src="../js/header.js"></script>
+
+    <!-- // END Header -->
+
+    <!-- Header Layout Content -->
+    <div class="mdk-header-layout__content">
+
+      <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+        <div class="mdk-drawer-layout__content page ">
+
+          <div class="container-fluid page__container">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+              <li class="breadcrumb-item active">Edit Account</li>
+            </ol>
+            <h1 class="h2">Add Assessment</h1>
+
+            <div class="card">
+              <div class="card-body">
+                <form action="http://localhost:4000/addAssessment" method="POST">
+                  <div id="problem-container">
+                    <div class="form-group row">
+                      <label for="quiz_title" class="col-sm-3 col-form-label form-label">Title:</label>
+                      <div class="col-sm-9">
+                        <input id="quiz_title" type="text" class="form-control" placeholder="Title">
+                      </div>
+                    </div>
+                    <div class="problem">
+                      <div class="card card-body">
+                      <div class="form-group row">
+                        <h5 class="col-sm-3">Problem-1</h5>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Statement:</label>
+                        <div class="col-sm-9">
+                          <textarea name="statement[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Input Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="inputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Output Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="outputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Constraints:</label>
+                        <div class="col-sm-9">
+                          <textarea name="constraints[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Explanation:</label>
+                        <div class="col-sm-9">
+                          <textarea name="explanation[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                  <div>
+
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 offset-sm-3">
+                      <div class="media-left">
+                        <button type="button" id="add-problem-button" class="btn btn-success">Add Problem</button>
+                        <button type="submit" class="btn btn-success">Save</button>
+                      </div>
+
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+        </div>
+        <script src="../js/header-left.js"></script>
+
+      </div>
+
+      <!-- App Settings FAB -->
+      <div id="app-settings">
+        <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-admin-account-edit.html',
+      'default': 'admin-account-edit.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script>
+    // Add functionality to add new problems
+    const problemContainer = document.getElementById('problem-container');
+    const addButton = document.getElementById('add-problem-button');
+
+    let problemCount = 1;
+
+    addButton.addEventListener('click', () => {
+      problemCount++;
+
+      const newProblem = document.createElement('div');
+      newProblem.classList.add('problem');
+
+      newProblem.innerHTML = `
+      <div class="card card-body">
+                      <div class="form-group row">
+                        <h5 class="col-sm-3">Problem-${problemCount}</h5>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Statement:</label>
+                        <div class="col-sm-9">
+                          <textarea name="statement[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Input Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="inputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Output Format:</label>
+                        <div class="col-sm-9">
+                          <textarea name="outputFormat[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Constraints:</label>
+                        <div class="col-sm-9">
+                          <textarea name="constraints[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Sample Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="sampleOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Input:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestInput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Hidden Test Case
+                          Output:</label>
+                        <div class="col-sm-9">
+                          <textarea name="hiddenTestOutput[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="quiz_title" class="col-sm-3 col-form-label form-label">Explanation:</label>
+                        <div class="col-sm-9">
+                          <textarea name="explanation[]" class="form-control" required></textarea>
+                        </div>
+                      </div>
+</div>
+                    `;
+
+      problemContainer.appendChild(newProblem);
+    });
+  </script>
+      <script src="../adminCalls/validationToken.js"></script>
+      <script src="../adminCalls/profileImage.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="../vendor/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../vendor/popper.min.js"></script>
+  <script src="../vendor/bootstrap.min.js"></script>
+
+  <!-- Perfect Scrollbar -->
+  <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+  <!-- MDK -->
+  <script src="../vendor/dom-factory.js"></script>
+  <script src="../vendor/material-design-kit.js"></script>
+
+  <!-- App JS -->
+  <script src="../inbuiltjs/app.js"></script>
+
+  <!-- Highlight.js -->
+  <script src="../inbuiltjs/hljs.js"></script>
+
+  <!-- App Settings (safe to remove) -->
+  <script src="../inbuiltjs/app-settings.js"></script>
+
+</body>
+
+</html>

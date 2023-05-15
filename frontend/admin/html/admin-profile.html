@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin - Public profile</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+        </div>
+        <script src="../js/header.js"></script>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="admin-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Profile</li>
+                        </ol>
+
+                        <div class="text-center">
+                            <a href="#"><img src="../../images/Avatar.jpg" alt="" class="rounded-circle" id="Avatar" width="150px" height="150px"></a>
+                            <h1 class="h2 mb-0 mt-1" id="name">Admin</h1>
+                            <div class="badge badge-primary ">Admin</div>
+                            <hr>
+                        </div>
+                        <div style="display: grid; justify-content: center;">
+                            <form id="formdata" enctype="multipart/form-data">
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-3 col-form-label form-label">Email</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">mail</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="email" id="email" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="website" class="col-sm-3 col-form-label form-label">Website</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">language</i>
+                                                </div>
+                                            </div>
+                                            <input type="url" name="website" id="website" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="occupation"
+                                        class="col-sm-3 col-form-label form-label">Occupation</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">group</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="occupation" id="occupation" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="companyName" class="col-sm-3 col-form-label form-label">Company
+                                        Name</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">business</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="companyName" id="companyName" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="phoneNumber" class="col-sm-3 col-form-label form-label">Phone
+                                        Number</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">phone_in_talk</i>
+                                                </div>
+                                            </div>
+                                            <input type="tel" name="phoneNumber" id="phoneNumber" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="address" class="col-sm-3 col-form-label form-label">Address</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">home</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="address" id="address" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="city" class="col-sm-3 col-form-label form-label">City</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">apartment</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="city" id="city" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="state" class="col-sm-3 col-form-label form-label">State</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">location_city</i>
+                                                </div>
+                                            </div>
+                                            <input type="text" name="state" id="state" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="pincode" class="col-sm-3 col-form-label form-label">Pincode</label>
+                                    <div class="col-sm-6 col-md-9">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text">
+                                                    <i class="material-icons md-18 text-muted">fiber_pin</i>
+                                                </div>
+                                            </div>
+                                            <input type="number" name="pincode" id="pincode" class="form-control" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </form>
+                        </div>
+                        <hr>
+                    </div>
+
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+                </div>
+                <script src="../js/header-left.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-admin-profile.html',
+      'default': 'admin-profile.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../adminCalls/validationToken.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../adminCalls/getAdminProfile.js"></script>
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../inbuiltjs/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../inbuiltjs/app-settings.js"></script>
+
+</body>
+
+</html>

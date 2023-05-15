@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en"
+      dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Instructor - Statement</title>
+
+        <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+        <meta name="robots"
+              content="noindex">
+
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+              rel="stylesheet">
+
+        <!-- Perfect Scrollbar -->
+        <link type="text/css"
+              href="../vendor/perfect-scrollbar.css"
+              rel="stylesheet">
+
+        <!-- Material Design Icons -->
+        <link type="text/css"
+              href="../css/material-icons.css"
+              rel="stylesheet">
+
+        <!-- Font Awesome Icons -->
+        <link type="text/css"
+              href="../css/fontawesome.css"
+              rel="stylesheet">
+
+        <!-- Preloader -->
+        <link type="text/css"
+              href="../vendor/spinkit.css"
+              rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css"
+              href="../css/app.css"
+              rel="stylesheet">
+
+        <!-- Flatpickr -->
+        <link type="text/css"
+              href="../css/flatpickr.css"
+              rel="stylesheet">
+        <link type="text/css"
+              href="../css/flatpickr-airbnb.css"
+              rel="stylesheet">
+
+    </head>
+
+    <body class=" layout-fluid">
+
+        <div class="preloader">
+            <div class="sk-chase">
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+                <div class="sk-chase-dot"></div>
+            </div>
+
+            <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+            <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+        </div>
+
+        <!-- Header Layout -->
+        <div class="mdk-header-layout js-mdk-header-layout">
+
+            <!-- Header -->
+
+            <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+            </div>
+            <script src="../js/header.js"></script>
+            <!-- // END Header -->
+
+            <!-- Header Layout Content -->
+            <div class="mdk-header-layout__content">
+
+                <div data-push
+                     data-responsive-width="992px"
+                     class="mdk-drawer-layout js-mdk-drawer-layout">
+                    <div class="mdk-drawer-layout__content page ">
+
+                        <div class="container-fluid page__container">
+                            <ol class="breadcrumb d-print-none">
+                                <li class="breadcrumb-item"><a href="instructor-dashboard.html">Home</a></li>
+                                <li class="breadcrumb-item active">Statement</li>
+                            </ol>
+                            <h1 class="h2">Statement</h1>
+                            <div class="card">
+                                <div class="card-header form-inline">
+                                    <div class="form-group ml-auto">
+                                        <label for="flatpickrSample02"
+                                               class="form-label mr-3">Date</label>
+                                        <input id="flatpickrSample02"
+                                               type="text"
+                                               class="form-control"
+                                               placeholder="Select dates"
+                                               data-toggle="flatpickr"
+                                               data-flatpickr-mode="range"
+                                               data-flatpickr-alt-input="false"
+                                               value="2018-10-07 to 2018-10-15">
+                                    </div>
+                                </div>
+
+                                <div data-toggle="lists"
+                                     data-lists-values='[
+        "js-lists-values-course", 
+        "js-lists-values-document",
+        "js-lists-values-amount",
+        "js-lists-values-date"
+      ]'
+                                     data-lists-sort-by="js-lists-values-date"
+                                     data-lists-sort-desc="true"
+                                     class="table-responsive">
+                                    <table class="table table-nowrap m-0">
+                                        <thead class="thead-light">
+                                            <tr>
+                                                <th colspan="2">
+                                                    <a href="javascript:void(0)"
+                                                       class="sort"
+                                                       data-sort="js-lists-values-course">Course</a>
+                                                    <a href="javascript:void(0)"
+                                                       class="sort"
+                                                       data-sort="js-lists-values-document">Document</a>
+                                                    <a href="javascript:void(0)"
+                                                       class="sort"
+                                                       data-sort="js-lists-values-amount">Amount</a>
+                                                    <a href="javascript:void(0)"
+                                                       class="sort"
+                                                       data-sort="js-lists-values-date">Date</a>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="list">
+
+                                            <tr>
+                                                <td>
+                                                    <div class="media align-items-center">
+                                                        <a href="instructor-course-edit.html"
+                                                           class="avatar avatar-4by3 avatar-sm mr-3">
+                                                            <img src="../images/vuejs.png"
+                                                                 alt="course"
+                                                                 class="avatar-img rounded">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <a class="text-body js-lists-values-course"
+                                                               href="instructor-course-edit.html"><strong>Angular Routing In-Depth</strong></a><br>
+                                                            <small class="text-muted mr-1">
+                                                                Invoice
+                                                                <a href="instructor-invoice.html"
+                                                                   style="color: inherit;"
+                                                                   class="js-lists-values-document">#8734</a> -
+                                                                &dollar;<span class="js-lists-values-amount">89</span> USD
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <small class="text-muted text-uppercase js-lists-values-date">12 Nov 2018</small>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="media align-items-center">
+                                                        <a href="instructor-course-edit.html"
+                                                           class="avatar avatar-4by3 avatar-sm mr-3">
+                                                            <img src="../images/vuejs.png"
+                                                                 alt="course"
+                                                                 class="avatar-img rounded">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <a class="text-body js-lists-values-course"
+                                                               href="instructor-course-edit.html"><strong>Angular Unit Testing</strong></a><br>
+                                                            <small class="text-muted mr-1">
+                                                                Invoice
+                                                                <a href="instructor-invoice.html"
+                                                                   style="color: inherit;"
+                                                                   class="js-lists-values-document">#8735</a> -
+                                                                &dollar;<span class="js-lists-values-amount">89</span> USD
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <small class="text-muted text-uppercase js-lists-values-date">13 Nov 2018</small>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="media align-items-center">
+                                                        <a href="instructor-course-edit.html"
+                                                           class="avatar avatar-4by3 avatar-sm mr-3">
+                                                            <img src="../images/github.png"
+                                                                 alt="course"
+                                                                 class="avatar-img rounded">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <a class="text-body js-lists-values-course"
+                                                               href="instructor-course-edit.html"><strong>Introduction to TypeScript</strong></a><br>
+                                                            <small class="text-muted mr-1">
+                                                                Invoice
+                                                                <a href="instructor-invoice.html"
+                                                                   style="color: inherit;"
+                                                                   class="js-lists-values-document">#8736</a> -
+                                                                &dollar;<span class="js-lists-values-amount">89</span> USD
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <small class="text-muted text-uppercase js-lists-values-date">14 Nov 2018</small>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div class="media align-items-center">
+                                                        <a href="instructor-course-edit.html"
+                                                           class="avatar avatar-4by3 avatar-sm mr-3">
+                                                            <img src="../images/gulp.png"
+                                                                 alt="course"
+                                                                 class="avatar-img rounded">
+                                                        </a>
+                                                        <div class="media-body">
+                                                            <a class="text-body js-lists-values-course"
+                                                               href="instructor-course-edit.html"><strong>Learn Angular Fundamentals</strong></a><br>
+                                                            <small class="text-muted mr-1">
+                                                                Invoice
+                                                                <a href="instructor-invoice.html"
+                                                                   style="color: inherit;"
+                                                                   class="js-lists-values-document">#8737</a> -
+                                                                &dollar;<span class="js-lists-values-amount">89</span> USD
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">
+                                                    <small class="text-muted text-uppercase js-lists-values-date">15 Nov 2018</small>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                            <!-- Pagination -->
+                            <ul class="pagination justify-content-center pagination-sm">
+                                <li class="page-item disabled">
+                                    <a class="page-link"
+                                       href="#"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true"
+                                              class="material-icons">chevron_left</span>
+                                        <span>Prev</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link"
+                                       href="#"
+                                       aria-label="1">
+                                        <span>1</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="#"
+                                       aria-label="1">
+                                        <span>2</span>
+                                    </a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link"
+                                       href="#"
+                                       aria-label="Next">
+                                        <span>Next</span>
+                                        <span aria-hidden="true"
+                                              class="material-icons">chevron_right</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+                    </div>
+                    <script src="../js/header-left.js"></script>
+
+                </div>
+
+                <!-- App Settings FAB -->
+                <div id="app-settings">
+                    <app-settings layout-active="default"
+                                  :layout-location="{
+      'fixed': 'fixed-instructor-statement.html',
+      'default': 'instructor-statement.html'
+    }"
+                                  sidebar-variant="bg-transparent border-0"></app-settings>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="../vendor/jquery.min.js"></script>
+        <script src="../instructorCalls/validationToken.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="../vendor/popper.min.js"></script>
+        <script src="../vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- MDK -->
+        <script src="../vendor/dom-factory.js"></script>
+        <script src="../vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="../inbuiltjs/app.js"></script>
+
+        <!-- Highlight.js -->
+        <script src="../inbuiltjs/hljs.js"></script>
+
+        <!-- App Settings (safe to remove) -->
+        <script src="../inbuiltjs/app-settings.js"></script>
+
+        <!-- Flatpickr -->
+        <script src="../vendor/flatpickr/flatpickr.min.js"></script>
+        <script src="../inbuiltjs/flatpickr.js"></script>
+
+        <!-- List.js -->
+        <script src="../vendor/list.min.js"></script>
+        <script src="../inbuiltjs/list.js"></script>
+
+    </body>
+
+</html>

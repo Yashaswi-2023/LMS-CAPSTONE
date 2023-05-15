@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Instructor - Add course</title>
+
+  <meta name="robots" content="noindex">
+
+  <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+    rel="stylesheet">
+
+  <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+  <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+  <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+  <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+  <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+  <link type="text/css" href="../css/flatpickr.css" rel="stylesheet">
+  <link type="text/css" href="../css/flatpickr-airbnb.css" rel="stylesheet">
+
+  <link type="text/css" href="../css/quill.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/nestable.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+
+    form {
+      display: grid;
+      flex-direction: row;
+      /* align-items: center; */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    select {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #ccc;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+
+    .question {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .question label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .question input[type="text"] {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .option {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .option label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .option input[type="text"] {
+      margin-right: 5px;
+    }
+
+    .option input[type="radio"] {
+      margin-right: 5px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class=" layout-fluid">
+  <div class="preloader">
+
+    <div class="sk-bounce">
+<div class="sk-bounce-dot"></div>
+<div class="sk-bounce-dot"></div>
+</div>
+
+</div>
+
+
+  <div class="mdk-header-layout js-mdk-header-layout">
+
+
+    <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+    </div>
+    <script src="../js/header.js"></script>
+
+
+    <div class="mdk-header-layout__content">
+
+      <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+        <div class="mdk-drawer-layout__content page ">
+
+          <div class="container-fluid page__container">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="instructor-dashboard.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="instructor-courses.html">Courses</a></li>
+              <li class="breadcrumb-item active">Add course</li>
+            </ol>
+            <div class="media align-items-center mb-headings">
+              <div class="media-body">
+                <h1 class="h2">Add Course</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4 class="card-title">Basic Information</h4>
+                  </div>
+                  <form id="formdata" enctype="multipart/form-data">
+                    <div class="card-body">
+
+                      <div class="form-group">
+                        <label class="form-label" for="title">Title</label>
+                        <input type="text" id="title" name="title" class="form-control" placeholder="Write a title">
+                      </div>
+
+                      <div class="form-group mb-0">
+                        <label class="form-label">Description</label>
+                        <input type="text" id="description" name="description">
+                      </div>
+
+                      <div class="form-group mb-0">
+                        <label class="form-label">Want to have Backup of files? Enter Folder ID</label>
+                        <input type="text" id="folderID" name="folderID">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Details</h4>
+                          <p class="card-subtitle">Options </p>
+                        </div>
+                        <div class="card-body">
+                          <div class="form-group">
+                            <label class="form-label" for="category">Course Category</label>
+                            <select id="category" class="custom-select form-control" name="category">
+                              <option value="Coding Languages">Coding Languages</option>
+                              <option value="Frontend Development">Frontend Development</option>
+                              <option value="Backend Development" selected>Backend Development</option>
+                              <option value="Full Stack Development">Full Stack Development</option>
+                              <option value="Human Values">Human Values</option>
+                              <option value="Photography">Photography</option>
+                              <option value="Arts">Arts</option>
+                              <option value="Medicine">Medicine</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-label" for="category">Course Type</label>
+                            <select id="category" class="custom-select form-control" name="course">
+                              <option value="Videos" selected>Videos</option>
+                              <option value="Text">Text</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group mb-0">
+                            <label class="form-label" for="option1">Completion Badge</label>
+                            <div>
+                              <div data-toggle="buttons">
+                                <label class="btn btn-primary btn-circle active">
+                                  <input type="radio" class="d-none" id="option1" checked>
+                                  <i class="material-icons">person</i>
+                                </label>
+                                <label class="btn btn-danger btn-circle">
+                                  <input type="radio" class="d-none" id="option2">
+                                  <i class="material-icons">star</i>
+                                </label>
+                                <label class="btn btn-success btn-circle">
+                                  <input type="radio" class="d-none" id="option3">
+                                  <i class="material-icons">shop</i>
+                                </label>
+                                <label class="btn btn-warning btn-circle">
+                                  <input type="radio" class="d-none" id="option4">
+                                  <i class="material-icons">monetization_on</i>
+                                </label>
+                                <label class="btn btn-info btn-circle">
+                                  <input type="radio" class="d-none" id="option5">
+                                  <i class="material-icons">enhanced_encryption</i>
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-header">
+                          <h4 class="card-title">Modules</h4>
+
+                        </div>
+                        <div class="card-body">
+                          <div id="problem-container">
+                            <div class="problem" id="problem">
+                              <div class="card card-body">
+                                <div class="form-group row">
+                                  <h5 class="col-sm-3">Module-1</h5>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="quiz_title" class="col-sm-3 col-form-label form-label">Name:</label>
+                                  <div class="col-sm-9">
+                                    <input type="text" name="name[]" class="form-control" required></input>
+                                  </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label for="quiz_title" class="col-sm-3 col-form-label form-label">Upload
+                                    File:</label>
+                                  <div class="col-sm-9">
+                                    <input type="file" name="video[]" id="video[]" class="form-control"
+                                      required></input>
+                                  </div>
+                                </div>
+                                <div id="questions-container"></div>
+                                <div>
+                                  <div class="media-left">
+                                    <button type="button" onclick="addQuiz('questions-container')"
+                                      class="btn btn-primary">Add
+                                      Quiz</button>
+                                  </div>
+
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div>
+                              <div class="media-left">
+                                <button type="button" id="add-problem-button" class="btn btn-success" >Add
+                                  Module</button>
+                                <button type="submit" class="btn btn-success">Save</button>
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="modal fade" id="editLesson">
+          <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+      </div>
+      <script src="../js/header-left.js"></script>
+
+    </div>
+
+    <div id="app-settings">
+      <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-instructor-course-edit.html',
+      'default': 'instructor-course-edit.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+    </div>
+
+  </div>
+  </div>
+  <script>
+    var problemCount;
+    // Add functionality to add new problems
+    const problemContainer = document.getElementById('problem-container');
+    const addButton = document.getElementById('add-problem-button');
+
+    problemCount = 1;
+
+    addButton.addEventListener('click', () => {
+      problemCount++;
+      questionCount = 0;
+
+      const newProblem = document.createElement('div');
+      newProblem.classList.add('problem');
+
+      newProblem.innerHTML = `
+  <div class="card card-body">
+    <div class="form-group row">
+                          <h5 class="col-sm-3">Module-${problemCount}</h5>
+                        </div>
+                        <div class="form-group row">
+                          <label for="quiz_title" class="col-sm-3 col-form-label form-label">Name:</label>
+                          <div class="col-sm-9">
+                            <input type="text" name="name[]" class="form-control" required></input>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="quiz_title" class="col-sm-3 col-form-label form-label">Upload File:</label>
+                          <div class="col-sm-9">
+                            <input type="file" name="video[]" class="form-control" required></input>
+                          </div>
+                        </div>
+                        <div id="questions-container${problemCount}"></div>
+                        <div>
+                          <div class="media-left">
+                            <button type="button" onclick = "addQuiz('questions-container${problemCount}')" class="btn btn-primary">Add Quiz</button>
+                          </div>
+
+                        </div>
+</div>
+                `;
+
+      problemContainer.appendChild(newProblem);
+    });
+  console.log(problemCount);
+  let questionCount = 0;
+  function addQuiz(data) {
+    const questionsContainer = document.getElementById(data);
+
+    // addQuestionBtn.addEventListener("click", () => {
+    questionCount++;
+
+    const questionDiv = document.createElement("div");
+    questionDiv.classList.add("question");
+
+    const questionLabel = document.createElement("label");
+    questionLabel.setAttribute("for", "module-" + problemCount + "-question-" + questionCount);
+    questionLabel.textContent = "Question " + questionCount + ":";
+
+    const questionInput = document.createElement("input");
+    questionInput.setAttribute("type", "text");
+    questionInput.setAttribute("id", "module-" + problemCount + "-question-" + questionCount);
+    questionInput.setAttribute("name", "module-" + problemCount + "-question-" + questionCount);
+    questionInput.setAttribute("required", "");
+
+    const optionsDiv = document.createElement("div");
+    optionsDiv.classList.add("options");
+    optionsDiv.classList.add("row")
+
+    for (let i = 1; i <= 4; i++) {
+      const optionDiv = document.createElement("div");
+      optionDiv.classList.add("option");
+
+      const optionLabel = document.createElement("label");
+      optionLabel.setAttribute("for", "module-" + problemCount + "-question-" + questionCount + "-option-" + i);
+      optionLabel.textContent = "Option " + i + ":";
+
+      const optionInput = document.createElement("input");
+      optionInput.setAttribute("type", "text");
+      optionInput.setAttribute("id", "module-" + problemCount + "-question-" + questionCount + "-option-" + i);
+      optionInput.setAttribute("name", "module-" + problemCount + "-question-" + questionCount + "-option-" + i);
+      // optionInput.setAttribute("style","width : 10%")
+      optionInput.setAttribute("required", "");
+
+      const correctOptionInput = document.createElement("input");
+      correctOptionInput.setAttribute("type", "radio");
+      correctOptionInput.setAttribute("id", "module-" + problemCount + "-question-" + questionCount + "-correct-option-" + i);
+      correctOptionInput.setAttribute("name", "module-" + problemCount + "-question-" + questionCount + "-correct-option");
+      correctOptionInput.setAttribute("value", i);
+      correctOptionInput.setAttribute("required", "");
+
+      const correctOptionLabel = document.createElement("label");
+      correctOptionLabel.setAttribute("for", "module-" + problemCount + "-question-" + questionCount + "-correct-option-" + i);
+      correctOptionLabel.textContent = "Correct?";
+
+      optionDiv.appendChild(optionLabel);
+      optionDiv.appendChild(optionInput);
+      optionDiv.appendChild(correctOptionInput);
+      optionDiv.appendChild(correctOptionLabel);
+      optionsDiv.appendChild(optionDiv);
+    }
+
+    questionDiv.appendChild(questionLabel);
+    questionDiv.appendChild(questionInput);
+    questionDiv.appendChild(optionsDiv);
+
+    questionsContainer.appendChild(questionDiv);
+    // });
+
+  }
+</script>
+
+  <script src="../instructorCalls/validationToken.js"></script>
+  <script src="../instructorCalls/addCourse.js"></script>
+
+  <script src="../vendor/jquery.min.js"></script>
+
+  <script src="../vendor/popper.min.js"></script>
+  <script src="../vendor/bootstrap.min.js"></script>
+
+  <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+  <script src="../vendor/dom-factory.js"></script>
+  <script src="../vendor/material-design-kit.js"></script>
+
+  <script src="../inbuiltjs/app.js"></script>
+
+  <script src="../inbuiltjs/hljs.js"></script>
+
+  <script src="../inbuiltjs/app-settings.js"></script>
+
+  <script src="../vendor/jquery.nestable.js"></script>
+  <script src="../inbuiltjs/nestable.js"></script>
+
+  <script src="../vendor/quill.min.js"></script>
+  <script src="../inbuiltjs/quill.js"></script>
+
+  <script src="../vendor/flatpickr/flatpickr.min.js"></script>
+  <script src="../inbuiltjs/flatpickr.js"></script>
+
+</body>
+
+</html>

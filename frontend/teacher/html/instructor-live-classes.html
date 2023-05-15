@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>instructor - Add Live Classes</title>
+
+    <meta name="robots" content="noindex">
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+
+    </div>
+
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+        </div>
+        <script src="../js/header.js"></script>
+
+
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="instructor-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Add Live Classes</li>
+                        </ol>
+                        <h1 class="h2">Add Live Classes</h1>
+
+                        <div class="card">
+                            <div class="tab-content card-body">
+                                <div class="tab-pane active" id="first">
+                  
+
+                                    <div class="card-header">
+                           
+                                     <h4 class="card-title">Details</h4>
+                           
+                                    </div>
+                           
+                                    <form>
+                           
+                                     <div class="card-body">
+                           
+                           
+                           
+                                      <div class="form-group">
+                           
+                                       <label class="form-label" for="title">Title</label>
+                           
+                                       <input type="text" id="title" name="title" class="form-control" placeholder="Write a title">
+                           
+                                      </div>
+                           
+                           
+                           
+                                      <div class="form-group">
+                           
+                                       <label class="form-label">Description</label>
+                           
+                                       <input type="text" id="description" name="description" class="form-control">
+                           
+                                      </div>
+                           
+                           
+                           
+                                      <div class="form-group">
+                           
+                                       <label class="form-label">Date</label>
+                           
+                                       <input type="date" id="date" name="date" class="form-control">
+                           
+                                      </div>
+                           
+                           
+                           
+                                      <div class="form-group">
+                           
+                                       <label class="form-label"> Start Time</label>
+                           
+                                       <input type="time" id="time" name="time" class="form-control">
+                           
+                                      </div>
+                           
+                           
+                           
+                                      <div class="form-group">
+                           
+                                       <label class="form-label">Duration</label>
+                           
+                                       <input type="text" id="duration" name="duration" class="form-control">
+                           
+                                      </div>
+                           
+                           
+                           
+                                      <div
+                           
+                                       class="d-flex flex-column flex-sm-row flex-wrap mb-headings align-items-start align-items-sm-center">
+                           
+                                       <a href="instructor-quiz-edit.html" class="btn btn-success" onclick="addLiveClass()">Add Live Class</a>
+                           
+                                      </div>
+                           
+                           
+                           
+                                     </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+                </div>
+                <script src="../js/header-left.js"></script>
+
+            </div>
+
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-instructor-account-edit.html',
+      'default': 'instructor-account-edit.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+    <script src="../instructorCalls/validationToken.js"></script>
+    <script src="../instructorCalls/addLiveClass.js"></script>
+    <script src="../instructorCalls/validationToken.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../instructorCalls/editInstructorProfile.js"></script>
+    <script src="../instructorCalls/getInstructorDetails.js"></script>
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <script src="../inbuiltjs/app.js"></script>
+
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <script src="../inbuiltjs/app-settings.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Instructor Dashboard</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+</head>
+
+<body class=" layout-fluid">
+
+
+    <!-- <table id="tableID" class="display" style="width: 100%">
+        <thead>
+            <tr>
+                <th>StudentID</th>
+                <th>StudentName</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Marks Scored</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ST1</td>
+                <td>Prema</td>
+                <td>35</td>
+                <td>Female</td>
+                <td>320</td>
+            </tr>
+            <tr>
+                <td>ST2</td>
+                <td>Wincy</td>
+                <td>36</td>
+                <td>Female</td>
+                <td>170</td>
+            </tr>
+            <tr>
+                <td>ST3</td>
+                <td>Ashmita</td>
+
+                <td>41</td>
+                <td>Female</td>
+                <td>860</td>
+            </tr>
+            <tr>
+                <td>ST4</td>
+                <td>Kelina</td>
+                <td>32</td>
+                <td>Female</td>
+                <td>433</td>
+            </tr>
+            <tr>
+                <td>ST5</td>
+                <td>Satvik</td>
+                <td>41</td>
+                <td>male</td>
+                <td>162</td>
+            </tr>
+            <tr>
+                <td>ST6</td>
+                <td>William</td>
+                <td>37</td>
+                <td>Female</td>
+                <td>372</td>
+            </tr>
+            <tr>
+                <td>ST7</td>
+                <td>Chandan</td>
+                <td>31</td>
+                <td>male</td>
+                <td>375</td>
+            </tr>
+            <tr>
+                <td>ST8</td>
+                <td>David</td>
+                <td>45</td>
+                <td>male</td>
+                <td>327</td>
+            </tr>
+            <tr>
+                <td>ST9</td>
+                <td>Harry</td>
+                <td>29</td>
+                <td>male</td>
+                <td>205</td>
+            </tr>
+            <tr>
+                <td>ST10</td>
+                <td>Frost</td>
+                <td>29</td>
+                <td>male</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td>ST11</td>
+                <td>Ginny</td>
+                <td>31</td>
+                <td>male</td>
+                <td>560</td>
+            </tr>
+            <tr>
+                <td>ST12</td>
+                <td>Flod</td>
+                <td>45</td>
+                <td>Female</td>
+                <td>342</td>
+            </tr>
+            <tr>
+                <td>ST13</td>
+                <td>Marshy</td>
+                <td>23</td>
+                <td>Female</td>
+                <td>470</td>
+            </tr>
+            <tr>
+                <td>ST13</td>
+                <td>Kennedy</td>
+                <td>43</td>
+                <td>male</td>
+                <td>313</td>
+            </tr>
+            <tr>
+                <td>ST14</td>
+                <td>Fiza</td>
+                <td>31</td>
+                <td>Female</td>
+                <td>750</td>
+            </tr>
+            <tr>
+                <td>ST15</td>
+                <td>Silva</td>
+                <td>34</td>
+                <td>male</td>
+                <td>985</td>
+            </tr>
+        </tbody>
+    </table> -->
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+
+        </div>
+        <script src="../js/header.js"></script>
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="instructor-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <h1 class="h2">Dashboard</h1>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-title">Earnings</h4>
+                                            <p class="card-subtitle">Last 7 Days</p>
+                                        </div>
+                                        <a href="instructor-earnings.html" class="btn btn-sm btn-primary"><i
+                                                class="material-icons">trending_up</i></a>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="legend" class="chart-legend mt-0 mb-24pt justify-content-start"></div>
+                                        <div class="chart" style="height: 200px;">
+                                            <canvas id="earningsChart" class="chart-canvas js-update-chart-bar"
+                                                data-chart-legend="#legend" data-chart-line-background-color="primary"
+                                                data-chart-prefix="$" data-chart-suffix="k"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-title">Teachers</h4>
+                                            <!-- <p class="card-subtitle">Latest Transactions</p> -->
+                                        </div>
+                                        <!-- <a href="instructor-statement.html" class="btn btn-sm btn-primary"><i
+                                                class="material-icons">receipt</i></a> -->
+                                    </div>
+                                    <div data-toggle="lists" data-lists-values='[
+                                        "js-lists-values-course", 
+                                        "js-lists-values-document",
+                                        "js-lists-values-amount",
+                                        "js-lists-values-date"
+                                    ]' data-lists-sort-by="js-lists-values-date" data-lists-sort-desc="true"
+                                        class="table-responsive">
+                                        <table class="table table-nowrap display m-3">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th><b>First Name</b></th>
+                                                    <th><b>Last Name</b></th>
+                                                    <th><b>Email</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list m-3" id="tableID">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-title">Students</h4>
+                                            <!-- <p class="card-subtitle">by course</p> -->
+                                        </div>
+                                        <a class="btn btn-sm btn-primary">Learners</a>
+                                    </div>
+                                    <div data-toggle="lists" data-lists-values='[
+                                        "js-lists-values-course", 
+                                        "js-lists-values-document",
+                                        "js-lists-values-amount",
+                                        "js-lists-values-date"
+                                    ]' data-lists-sort-by="js-lists-values-date" data-lists-sort-desc="true"
+                                        class="table-responsive">
+                                        <table class="table table-nowrap display m-3">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th><b>Full Name</b></th>
+                                                    <th><b>Email</b></th>
+                                                    <th><b>Subscription Ends On</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list m-3" id="studsDisp">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <div class="flex">
+                                            <h4 class="card-title">Courses</h4>
+                                            <!-- <p class="card-subtitle">by course</p> -->
+                                        </div>
+                                        <a class="btn btn-sm btn-primary">Courses</a>
+                                    </div>
+                                    <ul class="list-group list-group-fit mb-0" id="coursesDisp">
+
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+
+                </div>
+                <script src="../js/header-left.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-instructor-dashboard.html',
+      'default': 'instructor-dashboard.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+<script src="../adminCalls/validationToken.js"></script>
+
+    <script>
+        <!--Initialization of datatables -->
+
+        // $(document).ready(function () {
+        //     $("#tableID").DataTable({
+        //         initComplete: function () {
+
+        //             // Getting API instance
+        //             var api = this.api();
+
+        //             // On click event, get cell nodes
+        //             api.$("td").click(function () {
+        //                 api.search(this.innerHTML).draw();
+        //             });
+        //         },
+        //     });
+        // });
+        $(document).ready(function () {
+            // const email = window.localStorage.getItem('k')
+            // Load the JSON data using jQuery's $.get() function
+            $.get('http://localhost:4000/getAllTeachers', function (data) {
+                // Log the data to the console to verify that it was loaded correctly
+                console.log(data);
+                // Initialize the DataTable datatawith the data
+                for (i in data) {
+
+                    document.getElementById("tableID").innerHTML += `
+    <tr>
+        <td>
+            ${data[i].firstname}
+        </td>
+        <td>
+            ${data[i].lastname}
+        </td>
+        <td>
+            ${data[i].email}
+        </td>
+    </tr>
+    `;
+                }
+            });
+            $.get("http://localhost:4000/getAllCourses", (data) => {
+                for (i in data) {
+                    document.getElementById("coursesDisp").innerHTML += `
+    <li class="list-group-item">
+        <div class="media align-items-center">
+            <div class="media-body">
+                <a href="instructor-course-edit.html" class="text-body"><strong>${data[i].courseName}</strong></a>
+            </div>
+            <div class="media-right">
+                <div class="text-center">
+                    <span class="badge badge-pill badge-danger">${data[i].courseCategory}</span>
+                </div>
+            </div>
+        </div>
+    </li>
+    `
+                }
+            })
+        });
+        $.get("http://localhost:4000/getAllStudents", (data) => {
+            console.log(data[0]);
+            for (i in data) {
+                if (data[i].subEnd != undefined) {
+
+
+                    document.getElementById("studsDisp").innerHTML += `
+    <tr>
+        <td>
+            ${data[i].name}
+        </td>
+        <td>
+            ${data[i].email}
+        </td>
+        <td>
+            ${(data[i].subEnd).split("T")[0]}
+        </td>
+    </tr>
+
+    `}
+    if (data[i].subEnd == undefined) {
+
+
+document.getElementById("studsDisp").innerHTML += `
+<tr>
+<td>
+${data[i].name}
+</td>
+<td>
+${data[i].email}
+</td>
+<td>
+Not Yet subscribed
+</td>
+</tr>
+
+`}
+            }
+        })
+    </script>
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../adminCalls/profileImage.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../inbuiltjs/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../inbuiltjs/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../inbuiltjs/app-settings.js"></script>
+
+    <!-- Global Settings -->
+    <script src="../inbuiltjs/settings.js"></script>
+
+    <!-- Moment.js -->
+    <script src="../vendor/moment.min.js"></script>
+    <script src="../vendor/moment-range.js"></script>
+
+    <!-- Chart.js -->
+    <script src="../vendor/Chart.min.js"></script>
+    <script src="../inbuiltjs/chartjs-rounded-bar.js"></script>
+    <script src="../inbuiltjs/chartjs.js"></script>
+
+    <!-- Instructor Dashboard Page JS -->
+    <script src="../inbuiltjs/page.instructor-dashboard.js"></script>
+
+    <!-- List.js -->
+    <script src="../vendor/list.min.js"></script>
+    <script src="../inbuiltjs/list.js"></script>
+
+</body>
+
+</html>
