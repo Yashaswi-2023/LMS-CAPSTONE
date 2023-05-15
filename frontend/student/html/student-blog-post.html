@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Blog post</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+    <!-- Required by summernote -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- Summernote WYSIWYG -->
+    <link rel="stylesheet" href="../css/summernote.css">
+    
+
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Blog</a></li>
+                        <li class="breadcrumb-item active">Post</li>
+                    </ol>
+
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="media page-heading pt-0">
+                                <div class="media-body">
+                                    <h1 class="h2">Can someone help me with the basic Setup?</h1>
+                                    <p class="text-muted small">by <a href="student-profile.html">Jennifer Hudson</a> |
+                                        2 days ago</p>
+                                </div>
+                                <div class="media-right">
+                                    <a href="#" class="btn btn-white btn-circle"><i
+                                            class="material-icons">comment</i></a>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img class="card-img-top img-fluid" src="../images/cover/preview.jpg" alt="">
+                                <div class="card-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci laboriosam
+                                        accusantium a laborum pariatur accusamus inventore est error placeat, enim
+                                        quaerat voluptatibus dolorum neque hic deleniti rerum autem sed, quidem fugiat.
+                                    </p>
+                                    <p> Neque praesentium ut ea vel quisquam, et quidem cumque ad sit perferendis
+                                        corrupti officiis cupiditate iure modi. </p>
+                                    <p>Voluptates possimus nihil mollitia omnis voluptatibus autem atque debitis, sed
+                                        saepe?</p>
+                                </div>
+                            </div>
+
+                            <!-- Comment -->
+                            <h4 class="text-muted-light">Comments <small>(2)</small></h4>
+                            <div class="media">
+                                <div class="media-left text-center">
+                                    <img src="../images/people/50/guy-2.jpg" alt="" class="rounded-circle" width="40">
+                                </div>
+                                <div class="media-body">
+                                    <div class="card card-body">
+                                        <p><a href="#">Andrew Brain</a> <small class="text-muted">2 min ago</small></p>
+                                        <p>Nice theme</p>
+                                        <a href="#" class="btn btn-sm btn-white">
+                                            <i class="material-icons btn__icon--left">reply</i> Reply
+                                        </a>
+                                    </div>
+                                    <div class="media">
+                                        <div class="media-left text-center">
+                                            <img src="../images/people/50/guy-6.jpg" alt="" class="rounded-circle"
+                                                width="40">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="card card-body">
+                                                <p><a href="student-profile.html">Adrian Demian</a> <small
+                                                        class="text-muted">3 hrs ago</small></p>
+                                                <p>Here is the reply</p>
+                                                <a href="#" class="btn btn-sm btn-white">
+                                                    <i class="material-icons btn__icon--left">reply</i> Reply
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Comment</h4>
+                                </div>
+                                <textarea id="summernote"></textarea>
+                                <div class="card-body text-right">
+                                    <button class="btn btn-primary">Add comment</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="media align-items-center">
+                                        <div class="media-left">
+                                            <img src="../images/people/110/guy-6.jpg" alt="About Adrian" width="50"
+                                                class="rounded-circle">
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="card-title"><a href="student-profile.html">Adrian Demian</a></h4>
+                                            <a href="student-profile.html">View Profile</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-default"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="btn btn-default"><i class="fa fa-github"></i></a>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Categories</h4>
+                                </div>
+                                <ul class="list-group list-group-fit">
+                                    <li class="list-group-item active">
+                                        <a href="#">All Topics</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">General</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">Lessons</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <div class="form-group">
+                                        <input id="forumSearch" type="text" class="form-control"
+                                            placeholder="Type to search">
+                                    </div>
+                                    <a href="#" class="btn btn-primary">
+                                        Search <i class="material-icons btn__icon--right">search</i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-blog-post.html',
+      'default': 'student-blog-post.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="../vendor/summernote.min.js"></script>
+
+    <!-- Init -->
+    <script src="../js/summernote.js"></script>
+
+</body>
+
+</html>

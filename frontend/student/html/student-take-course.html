@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Take course</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="../../snackbar.css" rel="stylesheet">
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+</head>
+
+<body class=" layout-fluid">
+    <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-100" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" style="font-weight: bold;" id="titlenotes" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea style="white-space: pre-wrap;" class="form-control" id="textnotes"
+                        placeholder="Type Notes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success mr-auto" onclick="savenotes()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade review-bx-reply h-75" id="exampleModal1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-75" role="document">
+            <div class="modal-content h-75">
+                <div class="tab-pane" id="todolist">
+                    <h3 style="display : grid; justify-content: center;"> ✔ TO-DO</h3>
+                    <div class="containertodo">
+                        <div id="taskstodo">
+                            <!-- <p>hiiiiii</p> -->
+                            <ul id="render" class="chat-history" style="height: 300px;">
+
+                            </ul>
+                        </div>
+                        <div id="newtasktodo" class="m-3"
+                            style="display: grid ; justify-content: center ;margin-top: 10px;">
+                            <input type="text" class="form-control" placeholder="Add Tasks" id="inptodo">
+                            <button id="push" class="btn btn-success" onclick="todo()">Add</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+    <div id="snackbar"><b style="color: #000000;">Logged in</b></div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="student-browse-courses.html">Courses</a></li>
+                            <li class="breadcrumb-item active" id="pageView">The MVC architectural pattern</li>
+                        </ol>
+                        <h1 class="h2" id="title">The MVC architectural pattern</h1>
+                        <div class="row">
+                            <div class="col-md-8 tab-pane-active" id="moduleView">
+
+
+                                <!-- Lessons -->
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-primary btn-block flex-column">
+                                            <i class="material-icons">get_app</i> Download Files
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="media align-items-center" id="instructordet">
+
+                                        </div>
+                                    </div>
+                                    <div class="card-body" id="location">
+                                        <a href="" class="btn btn-light"><i class="fab fa-facebook"></i></a>
+                                        <a href="" class="btn btn-light"><i class="fab fa-twitter"></i></a>
+                                        <a href="" class="btn btn-light"><i class="fab fa-github"></i></a>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <ul class="list-group list-group-fit">
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <i class="material-icons text-muted-light">assessment</i>
+                                                </div>
+                                                <div class="media-body" id="typeC">
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Ratings</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="rating" id="ratingsSubmit">
+                                            <span><i class="fa fa-star" id="1" onclick="function1(id)"></i></span>
+
+                                            <span><i class="fa fa-star" id="2" onclick="function1(id)"></i></span>
+
+                                            <span><i class="fa fa-star" id="3" onclick="function1(id)"></i></span>
+
+                                            <span><i class="fa fa-star" id="4" onclick="function1(id)"></i></span>
+
+                                            <span><i class="fa fa-star" id="5" onclick="function1(id)"></i></span>
+                                        </ul>
+                                        <a onclick="submit_ratings()" class="btn btn-primary">SUBMIT</a><br>
+                                        <!-- <small class="text-muted">20 ratings</small> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                    <div class="mdk-drawer__content ">
+                        <div class="sidebar sidebar-left sidebar-dark bg-dark o-hidden" data-perfect-scrollbar>
+                            <div class="sidebar-p-y">
+                                <ul class="sidebar-menu">
+                                    <li class="sidebar-menu-item active">
+                                        <a class="sidebar-menu-button" href="student-dashboard.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
+                                            Dashboard
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <!-- Account menu -->
+
+                                <!-- Account menu -->
+                                <ul class="sidebar-menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="student-messages.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons fa fa-comments"></i>
+                                            Messages <span
+                                                class="sidebar-menu-badge badge badge-primary badge-notifications ml-auto">0</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="sidebar-menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="student-notes.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">comment</i>
+                                            Notes </a>
+                                    </li>
+                                </ul>
+                                <!-- Account menu -->
+                                <ul class="sidebar-menu">
+                                    <li class="sidebar-menu-item">
+
+                                        <a class="sidebar-menu-button sidebar-js-collapse">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons fas fa-book-reader"></i>
+                                            Course Curriculum</a>
+                                        <ul class="sm-indent" id="curriculum">
+
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                                <ul class="sidebar-menu sm-active-button-bg">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse"
+                                            href="#course_menu">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons fas fa-book-reader"></i>
+                                            Courses
+                                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                                        </a>
+                                        <ul class="sidebar-submenu sm-indent collapse" id="course_menu">
+
+                                            <li class="sidebar-menu-item">
+                                                <a class="sidebar-menu-button" href="student-take-quiz.html">
+                                                    <i
+                                                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                                    Take a Quiz
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-menu-item">
+                                                <a class="sidebar-menu-button" href="student-quiz-results.html">
+                                                    <i
+                                                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
+                                                    Quiz Results
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-menu-item">
+                                                <a class="sidebar-menu-button" href="student-my-courses.html">
+                                                    <i
+                                                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i>
+                                                    My Courses
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <!-- Account menu -->
+                                <ul class="sidebar-menu">
+
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="student-web-compiler.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons ">notes</i>
+                                            Web Compiler
+                                        </a>
+                                    </li>
+                                </ul>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-view-course.html',
+      'default': 'student-view-course.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        var count = 0;
+
+        var ratings = 0;
+        function function1(id) {
+            ratings = id;
+
+            if (count == 0) {
+                if (id < 3) {
+                    for (let i = 1; i <= id; i++) {
+                        document.getElementById(i).style = "color:red";
+                    }
+                } else {
+                    for (let i = 1; i <= id; i++) {
+                        document.getElementById(i).style = "color:green";
+                    }
+                }
+            } else {
+                for (let i = 1; i <= 5; i++) {
+                    document.getElementById(i).style = "none";
+
+                    count = 0;
+                }
+
+                if (id < 3) {
+                    for (let i = 1; i <= id; i++) {
+                        document.getElementById(i).style = "color:red";
+                    }
+                } else {
+                    for (let i = 1; i <= id; i++) {
+                        document.getElementById(i).style = "color:green";
+                    }
+                }
+            }
+
+            count = count + 1;
+        }
+        function submit_ratings() {
+            // console.log("tet");
+            if (ratings == 0) {
+                alert("Please give the valid rating");
+            } else {
+                $(document).ready(function () {
+                    $.ajax({
+                        type: "GET",
+
+                        url: "http://localhost:4000/addRatings",
+
+                        headers: {
+                            stud: JSON.parse(sessionStorage.getItem("user")).email,
+
+                            id: sessionStorage.getItem("id-crs"),
+
+                            ratings: ratings,
+                        },
+
+                        error: function (err, msg) {
+                            if (err.status == "404") window.location.href = "student-login.html";
+                        },
+
+                        success: function (data) {
+                            alert("ratings submitted!");
+                            location.reload();
+                        },
+                    });
+                });
+            }
+
+        }
+        // $(document).ready(() => {
+        //     var mods = document.getElementsByName("modulesbtn");
+        //     console.log(mods);
+        //     for (let i = 0; i < mods.length; i++) {
+        //         console.log(document.getElementById(`modulebtn${parseInt(i) + 1}`));
+        //         document
+        //             .getElementById(`modulebtn${parseInt(i) + 1}`)
+        //             .addEventListener("click", () => {
+        //                 document.getElementById(
+        //                     `module${parseInt(i) + 1}`
+        //                 ).style.display = "block";
+        //             });
+        //     }
+        // })
+        
+        var modules;
+        var assessment;
+        var course;
+
+        $(document).ready(async () => {
+            await $.ajax({
+                type: "GET",
+                url: "http://localhost:4000/getCourseDetails",
+                headers: {
+                    email: JSON.parse(sessionStorage.getItem("user")).email,
+                    token: sessionStorage.getItem("token"),
+                    crsid: sessionStorage.getItem("id-crs"),
+                },
+                success: (data) => {
+                    console.log(data);
+                    modules = data[0].modules;
+                    course = data[0].courseName;
+                    // console.log(course);
+                    document.getElementById(
+                        "instructordet"
+                    ).innerHTML += `<div class="media-left">
+                        <img src="${data[1].profilePicture}" alt="About ${data[1].firstname} ${data[1].lastname}" width="50"
+                            class="rounded-circle">
+                    </div>
+                    <div class="media-body">
+                        <h4 class="card-title"><a href="student-profile.html">${data[1].firstname} ${data[1].lastname}</a>
+                        </h4>
+                        <p class="card-subtitle">Instructor</p>
+                    </div><br>
+                    `;
+                    document.getElementById("location").innerHTML += `
+                    <a class=" btn btn-light"><i class="fa fa-map-marker"> </i> &nbsp; &nbsp;${data[1].city}, ${data[1].state}</a>
+                    <a target = "_blank" href="${data[1].website}" class="btn btn-light"><i class="fa fa-globe"> </i>&nbsp; &nbsp;  ${data[1].website}</a>
+                    `;
+                    document.getElementById("typeC").innerText = `${data[0].courseCategory}`;
+                    document.getElementById("pageView").innerText = `${data[0].courseName}`;
+                    document.getElementById("title").innerText = `${data[0].courseName}`;
+
+                    for (i in data[0].modules) {
+                        document.getElementById("curriculum").innerHTML += `
+                        <li class="list-group-item sidebar-menu-item p-0">
+                        <a class="sidebar-menu-button" onclick="viewModule('module${parseInt(i) + 1}')">
+                            <div class="media">
+                                <div class="media-left">
+                                    <div class="text-muted"><b style="color : black">${parseInt(i) + 1
+                            }. </b></div>
+                                </div>
+                                <div class="media-body">
+                                <div class="text-muted-light"><b style="color : black">${data[0].modules[i].name
+                            }</b></div>
+                                </div>
+                            </div>
+                        <a>
+                    </li>
+                    <br>
+                    
+                        `;
+                    }
+                },
+            });
+
+            await $.ajax({
+
+                type: "GET",
+                url: "http://localhost:4000/getAssessment",
+                headers: {
+                    crsname: course,
+                    email: JSON.parse(sessionStorage.getItem("user")).email,
+                },
+                success: (data) => {
+                    console.log(data);
+                    assessment = data
+                    // if (data.assesmentType == "Coding") {
+                    document.getElementById("curriculum").innerHTML += `
+                        <li class="list-group-item sidebar-menu-item p-0">
+                        <a class="sidebar-menu-button" onclick="viewAssessment('${data._id}','${data.assessmentType}')">
+                            <div class="media">
+                                <div class="media-body">
+                                <div class="text-muted-light"><b style="color : black">${data.courseName
+                        } Assesment</b></div>
+                                </div>
+                            </div>
+                            </div>
+                        <a>
+                    </li>
+                       `
+                    // }
+                }
+
+            })
+        })
+        // console.log(course);
+        function viewModule(data) {
+            var k = parseInt(data[data.length - 1])
+            // console.log(modules[k - 1]);
+            var crsid = sessionStorage.getItem("id-crs");
+            document.getElementById("moduleView").innerHTML = `
+            <div class="card">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item"
+                                            src="${modules[k - 1].video}"
+                                            allowfullscreen=""></iframe>
+                                    </div>
+                                    <div class="card-body" id="mname">
+                                       ${modules[k - 1].name}
+                                    </div>
+                                </div>
+
+                            <a class="btn btn-secondary p-2" onclick="takeQuiz('${crsid}','${k}')"><h3 style="color : black; padding : 3px;">Take Quiz</h3></a>
+            `
+        }
+        function takeQuiz(id, mod) {
+            sessionStorage.setItem("testlink", id)
+            sessionStorage.setItem("module", mod)
+            sessionStorage.setItem("quiz", JSON.stringify(modules[mod - 1].quiz))
+            console.log(JSON.stringify(modules[mod - 1]));
+            window.location.href = "student-take-quiz.html"
+        }
+
+        function viewAssessment(id, typ) {
+            // sessionStorage.setItem("testlink", id)
+            sessionStorage.setItem("quiz", JSON.stringify(assessment))
+            console.log(JSON.stringify(assessment));
+            sessionStorage.setItem("assessmentid", id);
+            if (typ == "Coding")
+                window.location.href = "student-final-assesment(code).html";
+            if (typ == "Quiz")
+                window.location.href = "student-final-assesment(quiz).html";
+        }
+    </script>
+    <!-- jQuery -->
+    <!-- <script src="../studentCalls/getCourseDet.js"></script> -->
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>

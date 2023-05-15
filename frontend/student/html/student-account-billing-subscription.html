@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Subscription</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container p-0">
+                        <div class="row m-0">
+                            <div class="col-lg container-fluid page__container">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Edit Account</li>
+                                </ol>
+
+                                <h1 class="h2">Subscription</h1>
+
+                                <div class="card">
+                                    <div class="list-group list-group-fit">
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label form-label col-sm-3">Your current
+                                                    plan</label>
+                                                <div class="col-sm-9 d-flex align-items-center">
+                                                    <div class="flex">Basic, &dollar;9 per month</div>
+                                                    <a href="student-account-billing-upgrade.html"
+                                                        class="text-secondary">Change plan</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label form-label col-sm-3">Billing cycle</label>
+                                                <div class="col-sm-9">
+                                                    <p class="mb-1">You will be charged $9 on Aug 20, 2018</p>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" checked
+                                                            id="customCheck1">
+                                                        <label class="custom-control-label" for="customCheck1">
+                                                            <strong>Enable automatic renewal</strong>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label form-label col-sm-3">Payment
+                                                    information</label>
+                                                <div class="col-sm-9 d-flex align-items-center">
+                                                    <img src="../images/visa.svg" alt="visa" width="40" class="mr-16pt">
+                                                    <div class="flex">Visa ending with 2819</div>
+                                                    <a href="student-account-billing-payment-information.html"
+                                                        class="text-secondary">Change method</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <div class="form-group row mb-0">
+                                                <label class="col-form-label form-label col-sm-3">Cancel</label>
+                                                <div class="col-sm-9">
+                                                    <a href="" class="btn btn-outline-secondary">Cancel subscription</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="page-nav" class="col-lg-auto page-nav">
+                                <div data-perfect-scrollbar>
+                                    <div class="page-section pt-lg-32pt">
+                                        <ul class="nav page-nav__menu">
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-subscription.html"
+                                                    class="nav-link active">Subscription</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-upgrade.html" class="nav-link">Upgrade
+                                                    Account</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-payment-information.html"
+                                                    class="nav-link">Payment Information</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-billing.html" class="nav-link">Payment History</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-invoice.html" class="nav-link">Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-account-billing-subscription.html',
+      'default': 'student-account-billing-subscription.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>

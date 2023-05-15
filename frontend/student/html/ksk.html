@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.6.4.js"
+		integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+</body>
+<script>
+	$(document).ready(function () {
+		url = window.location.href.split("=")[1],
+			$.ajax({
+				type: "POST",
+				url: "http://localhost:4000/ksk2",
+				contentType: "application/json",
+				data: JSON.stringify({
+					id: url,
+				}),
+				success: function (data) {
+					console.log(data);
+					sessionStorage.setItem("token", data[0]);
+					console.log("sahithi",data[1]);
+					sessionStorage.setItem("user", JSON.stringify(data[1]));
+					// $.ajax({
+					// 	type: "POST",
+
+					// 	url: "http://localhost:3470/sendemailL",
+
+					// 	contentType: "application/json",
+
+					// 	data: JSON.stringify({
+					// 		fullname: data[1].name,
+
+					// 		email: data[1].email,
+					// 	}),
+					// });
+					window.location.href = "student-dashboard.html";
+				},
+				error: function (err, message) {
+					console.log(message, err);
+					if (err.status == "404" || err.status == "401") window.location.href = "student-login.html";
+					// if () window.location.href = "login.html";
+				},
+			});
+	})
+</script>
+
+</html>

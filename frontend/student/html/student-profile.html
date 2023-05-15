@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student Profile</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+    <script src="../studentCalls/calls.js"></script>
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+        <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-100" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" style="font-weight: bold;" id="titlenotes" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea style="white-space: pre-wrap;" class="form-control" id="textnotes"
+                        placeholder="Type Notes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success mr-auto" onclick="savenotes()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade review-bx-reply h-75" id="exampleModal1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-75" role="document">
+            <div class="modal-content h-75">
+                <div class="tab-pane" id="todolist">
+                    <h3 style="display : grid; justify-content: center;"> ✔ TO-DO</h3>
+                    <div class="containertodo">
+                        <div id="taskstodo">
+                            <!-- <p>hiiiiii</p> -->
+                            <ul id="render" class="chat-history" style="height: 300px;">
+
+                            </ul>
+                        </div>
+                        <div id="newtasktodo" class="m-3"
+                            style="display: grid ; justify-content: center ;margin-top: 10px;">
+                            <input type="text" class="form-control" placeholder="Add Tasks" id="inptodo">
+                            <button id="push" class="btn btn-success" onclick="todo()">Add</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page pt-0">
+
+                    <div class="bg-primary mdk-box js-mdk-box mb-0" style="height: 192px;"
+                        data-effects="parallax-background blend-background">
+                        <div class="mdk-box__bg">
+                            <div class="mdk-box__bg-front"
+                                style="background-image: url(../images/1280_rsz_aman-dhakal-205796-unsplash.jpg); background-position: center;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid page__container d-flex align-items-end position-relative mb-4">
+                        <div class="avatar avatar-xxl position-absolute bottom-0 left-0 right-0">
+                            <img src="../images/256_rsz_clem-onojeghuo-150467-unsplash.jpg" alt="avatar"
+                                class="avatar-img rounded-circle border-3">
+                        </div>
+                        <ul class="nav nav-tabs-links flex" style="margin-left: 265px;">
+                            <li class="nav-item">
+                                <a href="student-profile.html" class="nav-link active">Courses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="student-profile-posts.html" class="nav-link">Posts</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="container-fluid page__container mb-3">
+                        <div class="row flex-sm-nowrap">
+                            <div class="col-sm-auto mb-3 mb-sm-0" style="width: 265px;">
+                                <h1 class="h2 mb-1" id="ndisp">Laza Bogdan</h1>
+                                <p class="d-flex align-items-center mb-4">
+                                    <a href="" class="btn btn-sm btn-success mr-2" id="fdisp">Follow @LazaBogdan</a>
+                                </p>
+                                <div class="text-muted d-flex align-items-center mb-2">
+                                    <i class="material-icons mr-1">account_box</i>
+                                    <div class="flex">Student since 2012</div>
+                                </div>
+                                <div class="text-muted d-flex align-items-center mb-4">
+                                    <i class="material-icons mr-1">location_on</i>
+                                    <div class="flex" id="locdisp">Romania, Europe</div>
+                                </div>
+
+                                <h4>About me</h4>
+                                <p class="text-black-70 measure-paragraph">Fueled by my passion for understanding the
+                                    nuances of cross-cultural advertising, I consider myself a forever student, eager to
+                                    both build on my academic foundations in psychology and sociology and stay in tune
+                                    with the latest digital marketing strategies through continued coursework.</p>
+
+                                <h4>Connect</h4>
+                                <p class="text-black-70 measure-paragraph">I’m currently working as a freelance
+                                    marketing director and always interested in a challenge. Here’s how to reach out and
+                                    connect.</p>
+                            </div>
+                            <div class="col-sm" id="coursesDisp">
+                                <!-- <div class="flex search-form search-form--light mb-4">
+  <button class="btn pr-3" type="button" role="button"><i class="material-icons">search</i></button>
+  <input type="text" class="form-control" placeholder="Search" id="searchSample02">
+</div> -->
+
+                               
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-profile.html',
+      'default': 'student-profile.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script>
+        var disp = JSON.parse(sessionStorage.getItem("user"))
+        document.getElementById("ndisp").innerHTML = JSON.parse(sessionStorage.getItem("user")).name
+        document.getElementById("locdisp").innerHTML = disp.city + ", " + disp.state;
+        document.getElementById("fdisp").innerHTML = "Follow @" + JSON.parse(sessionStorage.getItem("user")).name
+    </script>
+    <script src="../vendor/jquery.min.js"></script>
+    <script src="../studentCalls/myCourses.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>

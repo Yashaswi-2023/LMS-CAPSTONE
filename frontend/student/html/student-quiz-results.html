@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Quiz results</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+    <script src="../studentCalls/calls.js"></script>
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Quiz Results</li>
+                        </ol>
+                        <div class="media mb-headings align-items-center">
+                            <div class="media-left">
+                                <img src="../images/vuejs.png" alt="" width="80" class="rounded">
+                            </div>
+                            <div class="media-body">
+                                <h1 class="h2">Vue.js Deploy Quiz</h1>
+                                <p class="text-muted">submited on 2nd Feb 2016</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Result</h4>
+                            </div>
+                            <div class="card-body media align-items-center">
+                                <div class="media-body">
+                                    <h4 class="mb-0">5.8</h4>
+                                    <span class="text-muted-light">Good</span>
+                                </div>
+                                <div class="media-right">
+                                    <a href="student-take-quiz.html" class="btn btn-primary">Restart <i
+                                            class="material-icons btn__icon--right">refresh</i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Questions</h4>
+                            </div>
+                            <ul class="list-group list-group-fit mb-0">
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">1.</div>
+                                        </div>
+                                        <div class="media-body">Installation</div>
+                                        <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">2.</div>
+                                        </div>
+                                        <div class="media-body">The MVC architectural pattern</div>
+                                        <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">3.</div>
+                                        </div>
+                                        <div class="media-body">Database Models</div>
+                                        <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">4.</div>
+                                        </div>
+                                        <div class="media-body">Database Access</div>
+                                        <div class="media-right"><span class="badge badge-danger ">Wrong</span></div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">5.</div>
+                                        </div>
+                                        <div class="media-body">Eloquent Basics</div>
+                                        <div class="media-right"><span class="badge badge-primary ">Pending
+                                                Review</span></div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <div class="text-muted-light">6.</div>
+                                        </div>
+                                        <div class="media-body">Take Quiz</div>
+                                        <div class="media-right"><span class="badge badge-success ">Correct</span></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-quiz-results.html',
+      'default': 'student-quiz-results.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>

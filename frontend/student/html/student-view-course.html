@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - View course</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="../../snackbar.css" rel="stylesheet">
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+</head>
+
+<body class=" layout-fluid">
+    <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-100" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" style="font-weight: bold;" id="titlenotes" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea style="white-space: pre-wrap;" class="form-control" id="textnotes"
+                        placeholder="Type Notes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success mr-auto" onclick="savenotes()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade review-bx-reply h-75" id="exampleModal1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-75" role="document">
+            <div class="modal-content h-75">
+                <div class="tab-pane" id="todolist">
+                    <h3 style="display : grid; justify-content: center;"> ✔ TO-DO</h3>
+                    <div class="containertodo">
+                        <div id="taskstodo">
+                            <!-- <p>hiiiiii</p> -->
+                            <ul id="render" class="chat-history" style="height: 300px;">
+
+                            </ul>
+                        </div>
+                        <div id="newtasktodo" class="m-3"
+                            style="display: grid ; justify-content: center ;margin-top: 10px;">
+                            <input type="text" class="form-control" placeholder="Add Tasks" id="inptodo">
+                            <button id="push" class="btn btn-success" onclick="todo()">Add</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+    <div id="snackbar"><b style="color: #000000;">Logged in</b></div>
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="student-browse-courses.html">Courses</a></li>
+                            <li class="breadcrumb-item active" id="pageView">The MVC architectural pattern</li>
+                        </ol>
+                        <h1 class="h2" id="title">The MVC architectural pattern</h1>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe class="embed-responsive-item"
+                                            src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0"
+                                            allowfullscreen=""></iframe>
+                                    </div>
+                                    <div class="card-body" id="description">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta eius enim
+                                        inventoreus optio ratione veritatis. Beatae deserunt illum ipsam magniima
+                                        mollitia officiis quia tempora!
+                                    </div>
+                                </div>
+
+                                <!-- Lessons -->
+                                <ul class="card list-group list-group-fit" id="curriculum">
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </ul>
+                            </div>
+                            <div class="col-md-4" >
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <p>
+                                            <a href="student-account-billing-upgrade.html"
+                                                class="btn btn-success btn-block flex-column">
+                                                Get All Courses
+                                                <strong>&dollar;10 / month</strong>
+                                            </a>
+                                        </p>
+                                        <div class="page-separator">
+                                            <div class="page-separator__text">already subscribed?</div>
+                                        </div>
+                                        <a onclick="buyCourse()" class="btn btn-white btn-block flex-column">
+                                            <b>Enroll</b> to Course
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="media align-items-center" id="instructordet">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="card-body" id="location">
+                                        <a href="" class="btn btn-light"><i class="fab fa-facebook"></i></a>
+                                        <a href="" class="btn btn-light"><i class="fab fa-twitter"></i></a>
+                                        <a href="" class="btn btn-light"><i class="fab fa-github"></i></a>
+                                        <br><br>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <ul class="list-group list-group-fit">
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <i class="material-icons text-muted-light">assessment</i>
+                                                </div>
+                                                <div class="media-body" id="typeC">
+                                                    
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Ratings</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="rating" id="ratingsDisp">
+                                        </div>
+                                        <small class="text-muted" id="ratingsCount">20 ratings</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-view-course.html',
+      'default': 'student-view-course.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        async function buyCourse() {
+            var end;
+            await $.ajax({
+                type : "GET",
+                url : "http://localhost:4000/getDetailsOfUser/",
+                headers : {
+                    email : JSON.parse(sessionStorage.getItem("user")).email,
+                },
+                success : (data)=>{
+                    console.log(data);
+                    end = new Date(data.subEnd);
+                }
+            })
+            console.log(end);
+            //  end = new Date(JSON.parse(sessionStorage.getItem("user")).subEnd)
+            // console.log(end);
+            if (Date.now() < end.getTime()) {
+                // console.log(end);
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:4000/buyCourse",
+                    data: {
+                        stud: JSON.parse(sessionStorage.getItem("user")).email,
+                        crsid: sessionStorage.getItem("id-crs"),
+                    },
+                    error: function (err, message) {
+                        if (err.status == 409) {
+                            document.getElementById("snackbar").innerHTML = "Already Enrolled";
+                            document.getElementById("snackbar").style = "background-color : red;";
+                            document.getElementById("snackbar").className = "show";
+                            // After 3 seconds, remove the show class from DIV
+                            setTimeout(function () {
+                                document.getElementById("snackbar").className = document
+                                    .getElementById("snackbar")
+                                    .className.replace("show", "");
+                            }, 2000);
+                        }
+                    },
+                    success: (data) => {
+                        document.getElementById("snackbar").innerHTML = "Subscribed";
+                        document.getElementById("snackbar").style = "background-color : green;";
+                        document.getElementById("snackbar").className = "show";
+                        // After 3 seconds, remove the show class from DIV
+                        setTimeout(function () {
+                            document.getElementById("snackbar").className = document
+                                .getElementById("snackbar")
+                                .className.replace("show", "");
+                        }, 2000);
+                    }
+                })
+            }
+            else {
+                document.getElementById("snackbar").innerHTML = "Subscribe first";
+                document.getElementById("snackbar").style = "background-color : red;";
+                document.getElementById("snackbar").className = "show";
+                // After 3 seconds, remove the show class from DIV
+                setTimeout(function () {
+                    document.getElementById("snackbar").className = document
+                        .getElementById("snackbar")
+                        .className.replace("show", "");
+                }, 2000);
+                setTimeout(function () {
+                    window.location.href = "student-account-billing-upgrade.html"
+                }, 2100);
+            }
+        }
+    </script>
+    <!-- jQuery -->
+    <script src="../studentCalls/getCourseDet.js"></script>
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>

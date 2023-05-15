@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Student - Dashboard</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <link type="text/css" href="../../snackbar.css" rel="stylesheet">
+    <style>
+        .card {
+            box-shadow: 4px 4px 5px 1px rgba(138, 119, 243, 0.2);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 15px;
+            width: 100%;
+            /* height: auto; */
+            /* margin: 20px; */
+            padding: 10px;
+            transition: transform 0.5s ease-in-out;
+            background-color: rgba(248, 51, 51, 0)
+        }
+
+        .card-body {
+            padding: 0px;
+        }
+
+        #todolist {
+            height: 100vh;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+
+        #newtasktodo {
+            position: relative;
+            padding: 30px 20px;
+        }
+
+        #newtasktodo input {
+            width: 75%;
+            height: 45px;
+            padding: 12px;
+            color: #111111;
+            font-weight: 500;
+            position: relative;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            border: 2px solid #d1d3d4;
+        }
+
+        #newtasktodo input:focus {
+            outline: none;
+            border-color: #0d75ec;
+        }
+
+        #newtasktodo button {
+            position: relative;
+            float: right;
+            font-weight: 500;
+            font-size: 16px;
+            background-color: blueviolet;
+            border: none;
+            color: #ffffff;
+            cursor: pointer;
+            outline: none;
+            width: 20%;
+            height: 45px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #tasktodos {
+            border-radius: 10px;
+            width: 100%;
+            position: relative;
+            background-color: #ffffff;
+            padding: 30px 20px;
+            margin-top: 10px;
+        }
+
+        #render {
+            border-radius: 10px;
+            border: 1px solid black;
+            position: relative;
+            background-color: #ffffff;
+            padding: 30px 20px;
+            margin: 10px;
+        }
+
+        .tasktodo {
+            border-radius: 5px;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #939697;
+            cursor: pointer;
+            background-color: #c5e1e6;
+            height: 50px;
+            margin-bottom: 8px;
+            padding: 5px 10px;
+            display: flex;
+        }
+
+        .tasktodo span {
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .tasktodo button {
+            background-color: #6583e5;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            height: 100%;
+            width: 40px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body class=" layout-fluid">
+    <div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-100" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <input type="text" style="font-weight: bold;" id="titlenotes" />
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea style="white-space: pre-wrap;" class="form-control" id="textnotes"
+                        placeholder="Type Notes..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success mr-auto" onclick="savenotes()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade review-bx-reply h-75" id="exampleModal1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog w-100 h-75" role="document">
+            <div class="modal-content h-75">
+                <div class="tab-pane" id="todolist">
+                    <h3 style="display : grid; justify-content: center;"> ✔ TO-DO</h3>
+                    <div class="containertodo">
+                        <div id="taskstodo">
+                            <!-- <p>hiiiiii</p> -->
+                            <ul id="render" class="chat-history" style="height: 300px;">
+
+                            </ul>
+                        </div>
+                        <div id="newtasktodo" class="m-3"
+                            style="display: grid ; justify-content: center ;margin-top: 10px;">
+                            <input type="text" class="form-control" placeholder="Add Tasks" id="inptodo">
+                            <button id="push" class="btn btn-success" onclick="todo()">Add</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preloader">
+        <!-- <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div> -->
+
+        <div class="sk-bounce">
+            <div class="sk-bounce-dot"></div>
+            <div class="sk-bounce-dot"></div>
+        </div>
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+
+    <!-- Header Layout -->
+    <div id="snackbar"><b style="color: #000000;">Logged in</b></div>
+    <div class="mdk-header-layout js-mdk-header-layout">
+        <!-- <div id="snackbar"><b style="color: #000000;">Logged in</b></div> -->
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <h1 class="h2">Dashboard</h1>
+
+                        <div class="card border-left-3 border-left-primary card-2by1">
+                            <div class="card-body">
+                                <div class="media flex-wrap align-items-center">
+                                    <div class="media-left">
+                                        <i class="material-icons text-muted-light">credit_card</i>
+                                    </div>
+                                    <div class="media-body" id="validity" style="min-width: 180px">
+                                        add subscription details
+                                    </div>
+                                    <div class="media-right mt-2 mt-xs-plus-0" id="upgradeBtn">
+                                        <a class="btn btn-success"
+                                            href="student-account-billing-upgrade.html">Upgrade</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="card">
+                                <div class="card-header d-flex align-items-center"
+                                    style="background-color: #000000;">
+                                    <div class="flex" style="background-color: #000000;">
+                                        <h4 class="card-title" style="color :rgb(255, 255, 255)">Github</h4>
+                                        <!-- <p class="card-subtitle">4 days streak this week</p> -->
+                                    </div>
+                                    <i class="material-icons text-muted ml-2">trending_up</i>
+                                </div>
+                                <div class="card-body" style="background-color: #000000;" id="github">
+
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <h4 class="card-title">Courses</h4>
+                                                <p class="card-subtitle">Your recent courses</p>
+                                            </div>
+                                            <div class="media-right">
+                                                <a class="btn btn-sm btn-primary" href="student-my-courses.html">My
+                                                    courses</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-group list-group-fit mb-0" style="z-index: initial;"
+                                        id="courses-progress">
+
+                                    </ul>
+                                </div>
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <h4 class="card-title">Quizzes</h4>
+                                                <p class="card-subtitle">Your Performance</p>
+                                            </div>
+                                            <div class="media-right">
+                                                <a class="btn btn-sm btn-primary" href="#">Quiz results</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-group list-group-fit mb-0" id="quizpoints">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+
+
+                                <div class="card card-2by1">
+                                    <div class="card-header">
+                                        <h4 class="card-title">Rewards</h4>
+                                        <p class="card-subtitle">Your latest achievements</p>
+                                    </div>
+                                    <div class="card-body" id="rewards">
+
+
+                                    </div>
+
+                                </div>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="media align-items-center">
+                                            <div class="media-body">
+                                                <h4 class="card-title">Leaderboard</h4>
+                                                <p class="card-subtitle">See your Position</p>
+                                            </div>
+                                            <div class="media-right">
+                                                <a class="btn btn-sm btn-primary" href="student-forum.html"> <i
+                                                        class="material-icons">keyboard_arrow_right</i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Account menu -->
+                                    <ul class="sidebar-menu">
+
+                                        <table class="table display">
+                                            <thead class="thead">
+                                                <tr>
+                                                    <th><b>Ranking</b></th>
+                                                    <th><b>Avatar</b></th>
+                                                    <th><b>Full Name</b></th>
+                                                    <th><b>Scores</b></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="list" id="leaderboard">
+
+                                            </tbody>
+                                        </table>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                    </div>
+                    <script src="student-menu-bar.js"></script>
+
+                </div>
+
+                <!-- App Settings FAB -->
+                <div id="app-settings">
+                    <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-dashboard.html',
+      'default': 'student-dashboard.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+                </div>
+
+            </div>
+        </div>
+        <!-- jQuery -->
+        <script>
+            var gitname;
+            $(document).ready(() => {
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:4000/myCourses",
+                    headers: {
+                        token: sessionStorage.getItem("token"),
+                        email: JSON.parse(sessionStorage.getItem("user")).email,
+                    },
+                    error: (err, msg) => {
+                        if (err.status == 404 || err.status == 401)
+                            window.location.href = "student-login.html";
+                    },
+                    success: (data2) => {
+                        // console.log(data2);
+                        var percentage;
+                        for (i in data2[0]) {
+                            if (data2[0][i]._id == data2[1][i].course) {
+                                percentage =
+                                    (data2[1][i].quizPoints.completedQuizzes.length * 100) /
+                                    (data2[0][i].modules.length + 1);
+                            }
+                            if (percentage == 100)
+                                document.getElementById("courses-progress").innerHTML += `
+                                     <li class="list-group-item" style="z-index: initial;">
+                                            <div class="d-flex align-items-center ">
+                                                <a href="student-take-course.html"
+                                                    class="avatar avatar-sm mr-3 w-20">
+                                                    <img src="../../courseImg.png" alt="course"
+                                                        class="avatar-img rounded">
+                                                </a>
+                                                <div class="flex">
+                                                    <a href="student-take-course.html" class="text-body"><strong>${data2[0][i].courseName}</strong></a>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="progress" style="width: 100px;">
+                                                            <div class="progress-bar bg-success" role="progressbar"
+                                                                style="width: ${percentage}%" aria-valuenow="100"
+                                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <small class="text-muted ml-2">${percentage}%</small>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown ml-3">
+                                                    <a href="#" class="dropdown-toggle text-muted" data-caret="false"
+                                                        data-toggle="dropdown">
+                                                        <i class="material-icons">more_vert</i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item"
+                                                            href="student-take-course.html">Continue</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+          `;
+                            else if (percentage > 25 && percentage < 100) {
+                                document.getElementById("courses-progress").innerHTML += `
+                                     <li class="list-group-item" style="z-index: initial;">
+                                            <div class="d-flex align-items-center ">
+                                                <a href="student-take-course.html"
+                                                    class="avatar avatar-sm mr-3 w-20">
+                                                    <img src="../../courseImg.png" alt="course"
+                                                        class="avatar-img rounded">
+                                                </a>
+                                                <div class="flex">
+                                                    <a href="student-take-course.html" class="text-body"><strong>${data2[0][i].courseName}</strong></a>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="progress" style="width: 100px;">
+                                                            <div class="progress-bar bg-warning" role="progressbar"
+                                                                style="width: ${percentage}%" aria-valuenow="100"
+                                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <small class="text-muted ml-2">${percentage}%</small>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown ml-3">
+                                                    <a href="#" class="dropdown-toggle text-muted" data-caret="false"
+                                                        data-toggle="dropdown">
+                                                        <i class="material-icons">more_vert</i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item"
+                                                            href="student-take-course.html">Continue</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+          `;
+                            }
+                            else {
+                                document.getElementById("courses-progress").innerHTML += `
+                                     <li class="list-group-item" style="z-index: initial;">
+                                            <div class="d-flex align-items-center ">
+                                                <a href="student-take-course.html"
+                                                    class="avatar avatar-sm mr-3 w-20">
+                                                    <img src="../../courseImg.png" alt="course"
+                                                        class="avatar-img rounded">
+                                                </a>
+                                                <div class="flex">
+                                                    <a href="student-take-course.html" class="text-body"><strong>${data2[0][i].courseName}</strong></a>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="progress" style="width: 100px;">
+                                                            <div class="progress-bar bg-danger" role="progressbar"
+                                                                style="width: ${percentage}%" aria-valuenow="100"
+                                                                aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                        <small class="text-muted ml-2">${percentage}%</small>
+                                                    </div>
+                                                </div>
+                                                <div class="dropdown ml-3">
+                                                    <a href="#" class="dropdown-toggle text-muted" data-caret="false"
+                                                        data-toggle="dropdown">
+                                                        <i class="material-icons">more_vert</i>
+                                                    </a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item"
+                                                            href="student-take-course.html">Continue</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+          `;
+                            }
+                        }
+                        for (i in data2[1]) {
+                            document.getElementById("quizpoints").innerHTML += `
+                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <a class="text-body" href="student-quiz-results.html"><strong>${data2[0][i].courseName}</strong></a><br>
+                                                    <div class="d-flex align-items-center">
+                                                        <small class="text-black-50 text-uppercase mr-2">Course</small>
+                                                        <a href="student-take-course.html">${data2[0][i].courseName}</a>
+                                                    </div>
+                                                </div>
+                                                <div class="media-right text-center d-flex align-items-center">
+                                                    <h4 class="mb-0">${data2[1][i].quizPoints.totalPoints}</h4>
+                                                </div>
+                                            </div>
+                                        </li>
+                        `;
+                        }
+                    },
+                });
+                $.ajax({
+                    type: "GET",
+                    url: "http://localhost:4000/leaderboard",
+                    success: (data) => {
+                        for (i in data) {
+                            if (JSON.parse(sessionStorage.getItem("user")).email == data[i]._id.email) {
+                                document.getElementById("leaderboard").innerHTML += `
+                            <tr style="background-color : #00000029; color: black; width : 90%">
+                            <td>${parseInt(i) + 1}</td>
+                            <td><img class="avatar rounded-circle" width:"20px" src="${data[i]._id.profilePicture}"></td>
+                            <td>${data[i]._id.name}</td>
+                            <td>${data[i].points}</td>
+                                </tr>
+                        `;
+                                if (data[i].points > 80) {
+                                    document.getElementById("rewards").innerHTML = `<img width="100%" src="../images/elite.gif">`
+                                }
+                                else if (data[i].points > 60 && data[i].points <= 80) {
+                                    document.getElementById("rewards").innerHTML = `<img width="100%" src="../images/gold.gif">`
+                                }
+                                else if (data[i].points > 40 && data[i].points <= 60) {
+                                    document.getElementById("rewards").innerHTML = `
+                                        <div class="btn btn-success btn-circle"><i class="material-icons">thumb_up</i>
+                                        </div>
+                                        <div class="btn btn-success btn-circle"><i class="material-icons">grade</i></div>
+                                    `
+                                }
+                                else if (data[i].points > 20 && data[i].points <= 40) {
+                                    document.getElementById("rewards").innerHTML = `
+                                        <div class="btn btn-primary btn-circle"><i class="material-icons">thumb_up</i>
+                                        </div>
+                                        <div class="btn btn-primary btn-circle"><i class="material-icons">grade</i></div>
+                                    `
+                                }
+                                else if (data[i].points > 10 && data[i].points <= 20) {
+                                    document.getElementById("rewards").innerHTML = `
+                                        <div class="btn btn-info btn-circle"><i class="material-icons">thumb_up</i>
+                                        </div>
+                                        <div class="btn btn-info btn-circle"><i class="material-icons">grade</i></div>
+                                    `
+                                }
+                                else if (data[i].points <= 20) {
+                                    document.getElementById("rewards").innerHTML = `
+                                        <div class="btn btn-danger btn-circle"><i class="material-icons">thumb_up</i>
+                                        </div>
+                                        <div class="btn btn-danger btn-circle"><i class="material-icons">grade</i></div>
+                                    `
+                                }
+                            }
+                            else {
+                                document.getElementById("leaderboard").innerHTML += `
+                                <tr style="color : black">
+                                <td>${parseInt(i) + 1}</td>
+                                <td><img class="avatar rounded-circle" width:"20px" src="${data[i]._id.profilePicture}"></td>
+                                <td>${data[i]._id.name}</td>
+                                <td>${data[i].points}</td>
+                                    </tr>
+                            `;
+                            }
+                        }
+                    }
+                }),
+
+                    $.ajax({
+                        type: "GET",
+                        url: "http://localhost:4000/getGithub",
+                        headers: {
+                            email: JSON.parse(sessionStorage.getItem("user")).email,
+                        },
+                        success: (data1) => {
+                            // console.log(data.github);
+                            gitname = data1.github
+                            $.ajax({
+                                type: "GET",
+                                url: `http://localhost:4000/github_api/user/${gitname}`,
+                                success: async (data) => {
+                                    // console.log(data);
+                                    data = JSON.parse(data)
+                                    document.getElementById("github").innerHTML += `
+                                        <div class="card"  style="background-color: #000000;">
+                                            <div class="row p-3">
+                                                <img class="avatar rounded-circle" src="${data.avatar_url}">
+                                                <h2 style="color : white"> ${data.login}</h2>
+                                            </div>
+                                            <h4 style = "color : white">No. of Public Repositories : ${data.public_repos} </h4>
+                                        </div>
+                                        <div class="card p-0" style="background-color: #000000;">
+                                            <table class="table  display p-0">
+                                                <thead class="thead">
+                                                    <tr>
+                                                        <th style="color : white"><b>Repository</b></th>
+                                                        <th style="color : white"><b>Commits</b></th>
+                                                        <th style="color : white"><b>Languages</b></th>
+                                                        <th style="color : white"><b>Size</b></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list m-3" id="reposinfo">
+
+                                                </tbody>
+                                            </table>
+                                            
+                                        </div>
+                                    `;
+                                     await $.get(data.repos_url, async (obj, sts) => {
+                                        // console.log(obj);
+                                        for(i in obj){
+                                            document.getElementById("reposinfo").innerHTML += `
+                                                <tr style="color : white" id="reposrow${i}"></tr>`
+                                            document.getElementById(`reposrow${i}`).innerHTML += `<td>${obj[i].name}</td>`
+                                            await $.get(obj[i].commits_url.split("{/sha}")[0], (coms, sts1) => {
+                                                document.getElementById(`reposrow${i}`).innerHTML += `<td>${coms.length}</td>`
+                                            })
+                                            await $.get(obj[i].languages_url,(lang,sts2)=>{
+                                                document.getElementById(`reposrow${i}`).innerHTML += `<td>${Object.keys(lang)}</td>`
+                                            })
+                                            document.getElementById(`reposrow${i}`).innerHTML += `<td>${obj[i].size}</td>`
+
+                                            // console.log(commits,langs);
+                                        }
+                                    })
+                                }
+                            })
+                        }
+                    })
+
+            });
+        </script>
+        <script src="../studentCalls/calls.js"></script>
+        <script src="../studentCalls/subscribe.js"></script>
+        <script src="../studentCalls/myCourses.js"></script>
+
+        <script src="../vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="../vendor/popper.min.js"></script>
+        <script src="../vendor/bootstrap.min.js"></script>
+
+        <!-- Perfect Scrollbar -->
+        <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+        <!-- MDK -->
+        <script src="../vendor/dom-factory.js"></script>
+        <script src="../vendor/material-design-kit.js"></script>
+
+        <!-- App JS -->
+        <script src="../js/app.js"></script>
+
+        <!-- Highlight.js -->
+        <script src="../js/hljs.js"></script>
+
+        <!-- App Settings (safe to remove) -->
+        <script src="../js/app-settings.js"></script>
+
+        <!-- Global Settings -->
+        <script src="../js/settings.js"></script>
+
+        <!-- Moment.js -->
+        <script src="../vendor/moment.min.js"></script>
+        <script src="../vendor/moment-range.js"></script>
+
+        <!-- Chart.js -->
+        <script src="../vendor/Chart.min.js"></script>
+        <script src="../js/chartjs.js"></script>
+
+        <!-- Student Dashboard Page JS -->
+        <script src="../js/chartjs-rounded-bar.js"></script>
+        <script src="../js/page.student-dashboard.js"></script>
+
+</body>
+
+</html>

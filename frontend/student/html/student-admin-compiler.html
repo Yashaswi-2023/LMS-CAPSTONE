@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+
+
+<head>
+
+	<meta charset="UTF-8" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+	<title>Compilex Demo</title>
+
+
+
+	<!-- Link to Bootstrap -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js"
+		integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<script src="../studentCalls/calls.js"></script>
+
+	<style>
+		/* Set height of editor div to full screen minus navbar height */
+
+		.card-body {
+
+			background-color: black;
+
+			color: white;
+
+			padding: 3px;
+
+			margin: 3px;
+
+		}
+
+
+
+		h2,
+
+		h4,
+
+		h6 {
+
+			color: white;
+
+		}
+
+
+
+		#editor {
+
+			height: calc(100vh - 26px);
+
+		}
+	</style>
+
+
+
+	<!-- Bootstrap CSS -->
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+	<!-- Dark mode CSS -->
+
+	<!-- CodeMirror CSS -->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css" />
+
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.min.css" /> -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.15.3/ace.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.15.3/ace.js"
+		integrity="sha512-ccHRaolwYDPEgVPUVUyM3PppLOJHTa0sDgpzH0Q2VcS/WKDdgT3wosDUyf20H3N7fhedykwG8bBFv3IdJh3IOw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- CodeMirror Theme CSS -->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/theme/darcula.min.css" />
+
+</head>
+
+
+
+<body style="background-color: black;">
+	<div class="modal fade review-bx-reply" id="exampleModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog w-100 h-100" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<input type="text" style="font-weight: bold;" id="titlenotes" />
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<textarea style="white-space: pre-wrap;" class="form-control" id="textnotes"
+						placeholder="Type Notes..."></textarea>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success mr-auto" onclick="savenotes()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade review-bx-reply h-75" id="exampleModal1" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog w-100 h-75" role="document">
+			<div class="modal-content h-75">
+				<div class="tab-pane" id="todolist">
+					<h3 style="display : grid; justify-content: center;"> ✔ TO-DO</h3>
+					<div class="containertodo">
+						<div id="taskstodo">
+							<!-- <p>hiiiiii</p> -->
+							<ul id="render" class="chat-history" style="height: 300px;">
+
+							</ul>
+						</div>
+						<div id="newtasktodo" class="m-3"
+							style="display: grid ; justify-content: center ;margin-top: 10px;">
+							<input type="text" class="form-control" placeholder="Add Tasks" id="inptodo">
+							<button id="push" class="btn btn-success" onclick="todo()">Add</button>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row mt-3">
+
+		<div class="float-end float-right col-md-4" style="display:grid; justify-content: center; ">
+
+			<h3>
+
+				<p style="color : white">Time left: <span id="timer" style="color : white"></span></p>
+
+			</h3>
+
+		</div>
+
+		<div id="questions-bar1" class="col-md-4" style="display: grid; justify-content: center;">
+
+
+
+		</div>
+
+		<div class="col-md-4" style="display: grid; justify-content: center;">
+
+			<button id="submitTest" onclick="submitTest()" class="btn btn-info" style="padding:0px 20px; margin-bottom:2px ;">Submit</button>
+
+		</div>
+
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="display: grid; justify-content: center;">
+
+		<div id="questions-bar" class="row" style="display: flex; justify-content: center;">
+
+			<h2>Questions : &nbsp </h2>
+
+		</div>
+
+	</nav>
+
+	<div class="container-fluid">
+
+		<div class="row">
+
+			<div class="col-md-4">
+
+				<!-- Options column -->
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Problem Statement</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor1" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Input Format</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor2" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Output Format</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor3" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Constraints</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor4" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Sample Inputs</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor5" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Sample Outputs</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor6" style="height: auto;">
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="col-md-12 m-3">
+
+					<div class="card border rounded-3">
+
+						<div class="card-header">
+
+							<h5 class="mb-0">Explanation</h5>
+
+						</div>
+
+						<div class="card-body">
+
+							<div id="editor7" style="height: auto;"></div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<!-- Code editor column -->
+
+
+
+			<div class="col-md-8 mt-2">
+
+				<div style="display: grid; justify-content : center;">
+
+					<select class="form-control justify-content-between"
+						style="font-weight: 20px; margin-right: 20px; margin-left: 20px;" name="lang">
+
+						<option selected>Select Language</option>
+
+						<option value="C">C</option>
+
+						<option value="C++">C++</option>
+
+						<option value="Java">Java</option>
+
+						<option value="Python">Python</option>
+
+						<option value="CS">C#</option>
+
+						<option value="Go Lang">Go Lang</option>
+
+						<option value="JavaScript">JavaScript</option>
+
+					</select>
+
+				</div>
+
+				<h2 class="text-center">Solve the Given Problem Statement</h2>
+
+				<div id="editor" style="border-radius : 10px"></div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+
+						<div class="form-group">
+
+							<label for="input">
+
+								<h4>Input</h4>
+
+							</label>
+
+							<textarea id="input" name="input" class="form-control"></textarea>
+
+						</div>
+
+					</div>
+
+					<!-- Output column -->
+
+					<div class="col-md-6">
+
+						<div class="form-group">
+
+							<label for="output">
+
+								<h4>Output</h4>
+
+							</label>
+
+							<textarea id="output" name="output" class="form-control" disabled></textarea>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="mt-4">
+
+					<h4 class="text-center"></h4>
+
+					<button type="button" id="runButton" class="btn btn-primary btn-lg btn-block"> Run</button>
+
+					<br>
+
+					<div id="status"></div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<div id="image123" style="background-color: aliceblue;"></div>
+
+		<video id="video" width="200" height="150" autoplay></video>
+
+		<canvas id="canvas" width="200" height="150" style="display: none;">
+
+
+
+
+
+	</div>
+
+
+
+	<script>
+
+		$(document).ready(function () {
+			$("#runButton").click(async function () {
+				var code = editor.getValue();
+				var isChecked = $('input[name="inputRadio"]:checked').val();
+				if (isChecked) {
+					document.getElementById("input").disabled = false;
+				}
+				var input = document.getElementById('input').value;
+				var lang = {
+					'Python': "py",
+					'Java': "java",
+					'C++': "cpp",
+					'C': "c",
+					'C#': "cs",
+					'Go Lang': "go",
+					'JavaScript': "js"
+				}
+				var language = lang[$('select[name="lang"]').val()];
+				compiler = {
+					code: code,
+					input: input,
+					language: language
+				}
+				const data = JSON.stringify(compiler)
+				// console.log(data);
+				const URL = "https://cod-ey-api.vercel.app/";
+				try {
+					const fetchResult = await fetch(URL, {
+						mode: 'cors',
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+							'Access-Control-Allow-Origin': '*',
+							'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+						},
+						body: data
+					})
+					const compiledResult = await fetchResult.json()
+					document.getElementById("output").value = (compiledResult.getOutput)
+				} catch (e) {
+					console.log(e);
+				}
+				compiler = {
+					code: code,
+					input: hiddenTest,
+					language: language
+				}
+				const data1 = JSON.stringify(compiler)
+
+				// hidden case
+				const fetchResult = await fetch("https://cod-ey-api.vercel.app/", {
+					mode: 'cors',
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'Access-Control-Allow-Origin': '*',
+						'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+					},
+					body: data1
+				})
+
+				compiledResult = (await fetchResult.json()).getOutput;
+
+				$.ajax({
+					type: "POST",
+					url: "http://localhost:4000/evaluateCode1",
+					data: {
+						solution: compiledResult,
+						quesno: quesNo,
+						courseid: sessionStorage.getItem("aname"),
+						id: JSON.parse(sessionStorage.getItem('user'))._id
+					},
+					success: (data) => {
+						console.log(data);
+						if (data) {
+							// console.log(data);
+							score[quesNo] = 20
+							document.getElementById("status").innerHTML = `<br><div style="background-color : white; border-radius : 10px; justify-content : center; display : grid"><p style="color : green;padding : 5px">Hidden test case Passed</p></div>`;
+						}
+						else {
+							score[quesNo] = 0
+							document.getElementById("status").innerHTML = `<br><div style="background-color : white; border-radius : 10px; justify-content : center; display : grid"><p style="color : red;padding : 5px">Hidden test case Failed</p></div>`;
+						}
+						// console.log(score);
+					}
+				})
+
+
+
+				//hidden done
+			});
+
+		});
+
+		k = 0
+
+		$.get('http://localhost:4000/getProblems', function (data, sts) {
+			console.log(data);
+			for (k in data) {
+				if (data[k].title == sessionStorage.getItem("aname")) {
+					// console.log(data);
+					document.getElementById("questions-bar1").innerHTML += `<h3 style="color : white">${data[k].title}</h3>`
+					ques = data[k].questions;
+					for (i in ques) {
+						testId = data[k]._id;
+						document.getElementById("questions-bar").innerHTML += `
+			<button class="btn btn-info mr-2" onclick = "functionQues('${i}','${ques[i]._id}')">${parseInt(i) + 1}</button>
+			`
+					}
+				}
+				// console.log(data[1]);
+			}
+			sessionStorage.removeItem("id-crs")
+		})
+
+
+		document.addEventListener("contextmenu", (event) => {
+
+
+
+			event.preventDefault();
+
+
+
+		});
+
+		document.onkeydown = function (e) {
+
+
+
+			if (e.ctrlKey &&
+
+
+
+				(e.keyCode === 67 ||
+
+
+
+					e.keyCode === 86 ||
+
+
+
+					e.keyCode === 85 ||
+
+
+
+					e.keyCode === 117 ||
+
+
+
+					e.keyCode === 114 ||
+
+
+
+					e.keyCode === 82
+
+				) ||
+
+
+
+				e.keyCode == 123) {
+
+
+
+				// alert('not allowed');
+
+
+
+				return false;
+
+
+
+			} else {
+
+
+
+				return true;
+
+
+
+			}
+
+
+
+		};
+
+
+
+		const video = document.getElementById('video');
+
+		const canvas = document.getElementById('canvas');
+
+		var temp_imgs = [];
+
+		// const socket = io("ws://localhost:8900");
+
+		navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+
+			.then(stream => {
+
+				video.srcObject = stream;
+
+				// socket.emit('stream', stream);
+
+				// socket.on('timer',timer)
+
+				setInterval(() => {
+
+					canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+
+					// console.log(canvas.innerHTML);
+
+					let img = canvas.toDataURL("image/png");
+
+
+
+					temp_imgs.push(img);
+
+					console.log(temp_imgs);
+
+				}, 10000); // take a snapshot every 10 secs
+
+			})
+
+
+
+			.catch(error => {
+
+				alert("Turn on camera and mic");
+
+				// window.location.href = "compiler.html"
+
+			});
+
+		function submitTest() {
+
+
+			console.log(score);
+			var scoreRes = 0;
+			for(i in score){
+				scoreRes += score[i];
+			}
+			scoreRes = scoreRes*10/(score.length*2)
+			// console.log(temp_imgs);
+			// $.ajax({
+			// 	type: "POST",
+			// 	url: "http://localhost:4000/addScore1",
+			// 	data: {
+			// 		testid: testId,
+			// 		// solution: compiledResult,
+			// 		// quesno: quesNo,
+			// 		scores: score,
+			// 		// courseid: sessionStorage.getItem("id-crs"),
+			// 		id: JSON.parse(sessionStorage.getItem('user'))._id
+			// 	},
+			// 	success: (data) => {
+			// 		console.log(data);
+			// 		alert("Test Submitted")
+			// 		window.location.href = "student-my-courses.html"
+			// 	}
+			// })
+
+			for (i in temp_imgs) {
+
+				console.log(JSON.parse(sessionStorage.getItem("user")).email);
+
+				console.log(sessionStorage.getItem("aname"));
+
+				$.ajax({
+
+					type: "POST",
+
+					url: "http://localhost:4000/snapshot/",
+
+					contentType: "application/json",
+
+					headers: {
+
+						email: JSON.parse(sessionStorage.getItem("user")).email,
+						scores : scoreRes,
+						name: sessionStorage.getItem("aname"),
+
+					},
+
+					data: JSON.stringify({
+
+						image: temp_imgs[i],
+
+					}),
+
+					success: (data) => {
+
+						// e.stopPropagation();
+
+						// location.reload(false)
+
+					}
+
+				})
+
+			}
+
+			window.location.href = "complete.html";
+
+		}
+		const timeLimit = 300;
+
+		// retrieve the time left from local storage, or set it to the time limit if it doesn't exist
+		let timeLeft = localStorage.getItem("timeLeft");
+		if (!timeLeft) {
+			timeLeft = timeLimit;
+			localStorage.setItem("timeLeft", timeLeft);
+		}
+
+		// initialize the timer
+		const timerEl = document.getElementById("timer");
+		setInterval(() => {
+			if (timeLeft > 0) {
+				timeLeft--;
+				timerEl.innerHTML = `${Math.floor(timeLeft / 60)}:${timeLeft % 60}`;
+				localStorage.setItem("timeLeft", timeLeft);
+			} else {
+				// automatically submit the form when the time limit is reached
+				// submitForm();
+				submitTest();
+				localStorage.removeItem("timeLeft")
+				window.location.href = "complete.html"
+			}
+
+		}, 1000);
+		function functionQues(n, id) {
+			// console.log(ques);
+			quesNo = parseInt(n);
+			quesId = id;
+			// location.reload();
+
+			// console.log(quesNo, quesId, testId);
+			$.get('http://localhost:4000/getProblems', function (data, sts) {
+				console.log(data);
+				for (k in data) {
+					var ques = data[k].questions;
+					if (data[k].title == sessionStorage.getItem("aname")) {
+
+						$('#editor1').text((quesNo + 1) + ". " + (ques[quesNo].statement).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor2').text((ques[quesNo].inputFormat).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor3').text((ques[quesNo].outputFormat).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor4').text((ques[quesNo].constraints).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor5').text((ques[quesNo].sampleInput).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor6').text((ques[quesNo].sampleOutput).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#editor7').text((ques[quesNo].explanation).replace(/(\r\n|\r|\n)/g, '<br>'))
+						$('#input').text((ques[quesNo].sampleInput).replace(/(\r\n|\r|\n)/g, '<br>'))
+						hiddenTest = ques[quesNo].hiddenTestInput;
+					}
+				}
+				// console.log(ques);
+			})
+		}
+
+	</script>
+
+
+
+
+
+	<script>
+
+
+
+		var score = [];
+
+		// Create Ace Editor instance
+
+		var editor = ace.edit("editor");
+
+		editor.setFontSize("18px");
+
+
+
+		var defaultCode = {
+
+			"C": "#include<stdio.h>\n\nint main() {\n // Write your code here\n return 0;\n}",
+
+			"C++": "#include<iostream>\nusing namespace std;\n\nint main() {\n // Write your code here\n return 0;\n}",
+
+			"Java": "import java.util.*;\nimport java.io.*;\n\npublic class Main {\n public static void main(String[] args) {\n // Write your code here\n }\n}",
+
+			"Python": "# Write your code here \nprint('Hello world')",
+
+			"CS": "using System;\n\npublic class Main {\n public static void Main() {\n // Write your code here\n }\n}",
+
+			"VB": "Module Main\n Sub Main()\n ' Write your code here\n End Sub\nEnd Module"
+
+		};
+
+
+
+		editor.setTheme("ace/theme/dracula"); // set editor theme
+
+		editor.session.setMode("ace/mode/c_cpp"); // set editor mode for C++
+
+
+
+		// Change editor mode based on selected language
+
+		function changeEditorMode(mode) {
+
+			editor.session.setMode("ace/mode/" + mode); // set editor mode based on selected language
+
+		}
+
+
+
+		// Add event listener to select element
+
+		var select = document.querySelector('select[name="lang"]');
+
+
+
+		select.addEventListener('change', function () {
+
+			var selectedLang = this.value.toLowerCase();
+
+			editor.session.setValue(defaultCode[this.value]);
+
+
+
+			if (selectedLang === "c++") {
+
+				selectedLang = "c_cpp"; // Ace Editor uses "c_cpp" for C++
+
+			}
+
+			changeEditorMode(selectedLang);
+
+		});
+
+
+
+		// Set default code value
+
+		editor.session.setValue(defaultCode[select.value]);
+
+	</script>
+
+
+
+
+
+
+
+	<!-- Bootstrap JS -->
+
+</body>
+
+
+
+</html>

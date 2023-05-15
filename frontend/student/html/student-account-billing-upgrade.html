@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Upgrade Account</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Custom Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500%7CRoboto:400,500&display=swap"
+        rel="stylesheet">
+
+    <!-- Perfect Scrollbar -->
+    <link type="text/css" href="../vendor/perfect-scrollbar.css" rel="stylesheet">
+
+    <!-- Material Design Icons -->
+    <link type="text/css" href="../css/material-icons.css" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link type="text/css" href="../css/fontawesome.css" rel="stylesheet">
+
+    <!-- Preloader -->
+    <link type="text/css" href="../vendor/spinkit.css" rel="stylesheet">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- App CSS -->
+
+    <link type="text/css" href="../css/app.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+    <link type="text/css" href="../../snackbar.css" rel="stylesheet">
+</head>
+
+<body class=" layout-fluid">
+
+    <div class="preloader">
+        <div class="sk-chase">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+        </div>
+
+        <!-- <div class="sk-bounce">
+    <div class="sk-bounce-dot"></div>
+    <div class="sk-bounce-dot"></div>
+  </div> -->
+
+        <!-- More spinner examples at https://github.com/tobiasahlin/SpinKit/blob/master/examples.html -->
+    </div>
+    <div id="snackbar"><b style="color: #000000;" id="subSnack">subscribed :)</b></div>
+
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" data-fixed class="mdk-header js-mdk-header mb-0">
+            <div class="mdk-header__content" id="headertop">
+            </div>
+            <script src="student-header.js"></script>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content">
+
+            <div data-push data-responsive-width="992px" class="mdk-drawer-layout js-mdk-drawer-layout">
+                <div class="mdk-drawer-layout__content page ">
+
+                    <div class="container-fluid page__container p-0">
+                        <div class="row m-0">
+                            <div class="col-lg container-fluid page__container">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="student-dashboard.html">Home</a></li>
+                                    <li class="breadcrumb-item active">Edit Account</li>
+                                </ol>
+
+                                <h1 class="h2">Upgrade Account</h1>
+
+                                <div class="row card-group-row mb-40pt">
+                                    <div class="col-lg-6 col-sm-6 card-group-row__col">
+
+                                        <div
+                                            class="card card-group-row__card text-center o-hidden card--raised navbar-shadow">
+
+                                            <div class="card-body d-flex flex-column">
+                                                <div class="flex-grow-1 mb-16pt">
+                                                    <span
+                                                        class="w-64 h-64 icon-holder icon-holder--outline-info rounded-circle d-inline-flex mb-16pt">
+                                                        <i class="	far fa-calendar-alt"></i>
+                                                    </span>
+                                                    <h4 class="mb-8pt">Month</h4>
+                                                    <p class="text-black-70">Access to over 1000 high quality courses.
+                                                        For a month.</p>
+                                                </div>
+                                                <p class="d-flex justify-content-center align-items-center m-0">
+                                                    <span class="h4 m-0 font-weight-normal">₹</span>
+                                                    <span class="h2 m-0 font-weight-normal">199</span>
+                                                    <span class="h4 m-0 font-weight-normal">/ month</span>
+                                                </p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <a class="btn btn-info" name="getstarted" id="getstarted1"
+                                                    onclick="testPay('199',30)">Get started</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6 col-sm-6 card-group-row__col">
+
+                                        <div class="card card-group-row__card text-center o-hidden">
+
+                                            <div class="card-body d-flex flex-column">
+                                                <div class="flex-grow-1 mb-16pt">
+                                                    <span
+                                                        class="w-64 h-64 icon-holder icon-holder--outline-success rounded-circle d-inline-flex mb-16pt">
+                                                        <i class="	fas fa-calendar-alt"></i>
+                                                    </span>
+                                                    <h4 class="mb-8pt">Year</h4>
+                                                    <p class="text-black-70">Access to over 1000 high quality courses.
+                                                        For a year(save $20).</p>
+                                                </div>
+                                                <p class="d-flex justify-content-center align-items-center m-0">
+                                                    <span class="h4 m-0 font-weight-normal">₹</span>
+                                                    <span class="h2 m-0 font-weight-normal">1499</span>
+                                                    <span class="h4 m-0 font-weight-normal">/ year</span>
+                                                </p>
+
+                                            </div>
+                                            <div class="card-footer">
+                                                <a class="btn btn-success" id="getstarted2" class="getstarted"
+                                                    onclick="testPay('1499',360)">Get started</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="page-nav" class="col-lg-auto page-nav">
+                                <div data-perfect-scrollbar>
+                                    <div class="page-section pt-lg-32pt">
+                                        <ul class="nav page-nav__menu">
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-subscription.html"
+                                                    class="nav-link">Subscription</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-upgrade.html"
+                                                    class="nav-link active">Upgrade Account</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-account-billing-payment-information.html"
+                                                    class="nav-link">Payment Information</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-billing.html" class="nav-link">Payment History</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="student-invoice.html" class="nav-link">Invoice</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                </div>
+                <script src="student-menu-bar.js"></script>
+
+            </div>
+
+            <!-- App Settings FAB -->
+            <div id="app-settings">
+                <app-settings layout-active="default" :layout-location="{
+      'fixed': 'fixed-student-account-billing-upgrade.html',
+      'default': 'student-account-billing-upgrade.html'
+    }" sidebar-variant="bg-transparent border-0"></app-settings>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        async function testPay(price, day) {
+            // e.preventDefault();
+            await $.ajax({
+                type: "POST",
+                url: "http://localhost:4000/payment",
+                contentType: "application/json",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                data: JSON.stringify({
+                    amount: price,
+                }),
+                success: async function (data) {
+                    console.log(data);
+                    var options = {
+                        "key": "rzp_test_sx8NkpT8TxSC7k", // Enter the Key ID generated from the Dashboard
+                        "amount": data.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                        "currency": "INR",
+                        "order_id": data.order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                        "handler": function (response) {
+                            $.ajax({
+                                type: "POST",
+                                url: "http://localhost:4000/validity",
+                                headers: {
+                                    email: JSON.parse(sessionStorage.getItem("user")).email,
+                                    days: day,
+                                },
+                                success: (data) => {
+                                    location.reload();
+                                }
+                            })
+                            alert(response.razorpay_payment_id, response.razorpay_order_id, response.razorpay_signature);
+                            alert(`Amount Paid : ${data.amount}\n`);
+                            // window.location.href = "lcourses.html";
+                            location.reload();
+                        },
+                        "theme": {
+                            "color": "#6610f2",
+                        },
+                    };
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+
+                    rzp1.on('payment.failed', function (response) {
+                        alert(response.error.code);
+                        alert(response.error.description);
+                        alert(response.error.source);
+                        alert(response.error.step);
+                        alert(response.error.reason);
+                        alert(response.error.metadata.order_id);
+                        alert(response.error.metadata.payment_id);
+                    });
+
+                },
+            });
+        }
+    </script>
+    <!-- jQuery -->
+    <script src="../studentCalls/subscribe.js"></script>
+    <script src="../studentCalls/calls.js"></script>
+
+    <script src="../vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="../vendor/popper.min.js"></script>
+    <script src="../vendor/bootstrap.min.js"></script>
+
+    <!-- Perfect Scrollbar -->
+    <script src="../vendor/perfect-scrollbar.min.js"></script>
+
+    <!-- MDK -->
+    <script src="../vendor/dom-factory.js"></script>
+    <script src="../vendor/material-design-kit.js"></script>
+
+    <!-- App JS -->
+    <script src="../js/app.js"></script>
+
+    <!-- Highlight.js -->
+    <script src="../js/hljs.js"></script>
+
+    <!-- App Settings (safe to remove) -->
+    <script src="../js/app-settings.js"></script>
+
+</body>
+
+</html>
